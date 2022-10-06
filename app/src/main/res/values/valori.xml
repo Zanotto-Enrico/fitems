@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="btnCornerRadius" type="dimen" >7sp</item>
+    <item name="textboxCornerRadius" type="dimen" >7sp</item>
+
+</resources>

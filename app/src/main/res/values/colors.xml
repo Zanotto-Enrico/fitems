@@ -8,10 +8,13 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="primaryDark">#3B1F2B</color>
-    <color name="primaryLight">#DB162F</color>
-    <color name="accent">#DBDFAC</color>
-    <color name="secondaryLight">#5F758E</color>
-    <color name="secondaryDark">#383961</color>
+    <color name="primaryDark">#2b2d42</color>
+    <color name="primaryLight">#8d99ae</color>
+    <color name="accent">#ffffff</color>
+    <color name="secondaryLight">#000000</color>
+    <color name="secondaryDark">#f8f32b</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color">#ffffff</color>
+    <color name="mtrl_">#DBDFAC</color>
 
 </resources>

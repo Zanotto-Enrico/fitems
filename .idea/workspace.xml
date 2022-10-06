@@ -1,29 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="37d6e59e-ee94-431d-bcce-4e58bb4d4ae1" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fitems/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fitems/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/values/themes.xml" afterDir="false" />
+      <change beforePath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/.idea/workspace.xml" beforeDir="false" afterPath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/java/com/example/fitems/MainActivity.java" beforeDir="false" afterPath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/java/com/example/fitems/MainActivity.java" afterDir="false" />
+      <change beforePath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/res/layout/activity_main.xml" afterDir="false" />
+      <change beforePath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/res/values-night/themes.xml" beforeDir="false" afterPath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/res/values-night/themes.xml" afterDir="false" />
+      <change beforePath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/res/values/colors.xml" beforeDir="false" afterPath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/res/values/colors.xml" afterDir="false" />
+      <change beforePath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/res/values/themes.xml" beforeDir="false" afterPath="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/res/values/themes.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[]" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[NXEDU19802002066]" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="valueResourceFile" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -39,9 +60,18 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
     <property name="cidr.known.project.marker" value="true" />
+    <property name="last_opened_file_path" value="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/res/values" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app/src/main/res/values" />
+    </key>
+    <key name="android.template.479160293">
+      <recent name="com.example.fitems" />
+    </key>
   </component>
   <component name="RunManager">
-    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App">
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
       <module name="fitems.app.main" />
       <option name="DEPLOY" value="true" />
       <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
