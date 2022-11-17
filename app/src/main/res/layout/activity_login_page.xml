@@ -23,9 +23,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Login"
+            android:text="@string/login"
             android:textColor="@color/accent"
-            android:textSize="24sp" />
+            android:textSize="30sp" />
 
         <com.google.android.material.textfield.TextInputLayout
             android:layout_width="250sp"
@@ -77,9 +77,20 @@
             android:backgroundTint="@color/primaryLight"
             android:text="Accedi"
             android:textColor="@color/accent"
-            android:textSize="24sp"
+            android:textSize="20sp"
             app:cornerRadius="@dimen/btnCornerRadius" />
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/btnIndex"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@null"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

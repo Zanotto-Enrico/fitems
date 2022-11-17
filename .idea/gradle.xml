@@ -10,8 +10,8 @@
         <option name="gradleHome" value="/usr/share/java/gradle" />
         <option name="modules">
           <set>
-            <option value="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems" />
-            <option value="/mnt/data/zan/Documenti/scuola/unive/gitRep/fitems/app" />
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/app" />
           </set>
         </option>
       </GradleProjectSettings>

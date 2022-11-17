@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">fitems</string>
+    <string name="app_name">FItems</string>
+    <string name="accedi">Accedi</string>
+    <string name="registrati">Registrati</string>
+    <string name="login">Login</string>
+
 </resources>

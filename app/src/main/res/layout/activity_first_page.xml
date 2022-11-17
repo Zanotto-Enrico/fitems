@@ -22,9 +22,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Fitems"
+            android:text="@string/app_name"
+            android:textStyle="bold"
             android:textColor="@color/accent"
-            android:textSize="24sp" />
+            android:textSize="35sp" />
 
         <Button
             android:id="@+id/button"
@@ -32,7 +33,7 @@
             android:layout_height="91dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/primaryLight"
-            android:text="Accedi"
+            android:text="@string/accedi"
             android:textColor="@color/accent"
             android:textSize="20sp"
             app:cornerRadius="@dimen/btnCornerRadius" />
@@ -43,7 +44,7 @@
             android:layout_height="91dp"
             android:layout_marginTop="40dp"
             android:backgroundTint="@color/primaryLight"
-            android:text="Registrati"
+            android:text="@string/registrati"
             android:textColor="@color/accent"
             android:textSize="20sp"
             app:cornerRadius="@dimen/btnCornerRadius" />
