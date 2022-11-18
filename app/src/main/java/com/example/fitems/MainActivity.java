@@ -16,9 +16,5 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         setContentView(R.layout.activity_main);
-
-        Intent myIntent = new Intent(MainActivity.this, FirstPage.class);
-        MainActivity.this.startActivity(myIntent);
-
     }
 }
