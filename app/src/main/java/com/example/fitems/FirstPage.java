@@ -10,8 +10,9 @@ import android.widget.Button;
 
 public class FirstPage extends AppCompatActivity {
 
-    Button btnAccedi;
-    Button btnRegistrati;
+    private Button btnAccedi;
+    private Button btnRegistrati;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,24 +20,25 @@ public class FirstPage extends AppCompatActivity {
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         setContentView(R.layout.activity_first_page);
 
-        btnRegistrati = findViewById(R.id.button2);
-        btnAccedi = findViewById(R.id.button);
+        // assegnamenti di tutti gli elementi della schermata di login
+        this.btnRegistrati = findViewById(R.id.button2);
+        this.btnAccedi = findViewById(R.id.button);
 
+
+        // di seguito il codice dei listener di tutti i pulsanti dell'activity
         btnAccedi.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(FirstPage.this, LoginPage.class);
-                FirstPage.this.startActivity(myIntent);
+            public void onClick(View view) {
+                Intent i = new Intent(FirstPage.this, LoginPage.class);
+                view.getContext().startActivity(i);
             }
         });
 
         btnRegistrati.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view)
-            {
-                Intent myIntent = new Intent(FirstPage.this, RegisterPage.class);
-                FirstPage.this.startActivity(myIntent);
+            public void onClick(View view) {
+                Intent i = new Intent(FirstPage.this, RegisterPage.class);
+                view.getContext().startActivity(i);
             }
         });
     }
