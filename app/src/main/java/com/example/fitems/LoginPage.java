@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.fitems.Classes.ApiInterface;
 import com.example.fitems.Classes.RetrofitClient;
+import com.google.gson.JsonObject;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -59,15 +60,15 @@ public class LoginPage extends AppCompatActivity {
                 String url = "login";
 
                 ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
-                Call<String> call = apiInterface.makeLogIn(usrInserito, pwdInserta);
-                call.enqueue(new Callback<String>() {
+                Call<JsonObject> call = apiInterface.makeLogIn(usrInserito, pwdInserta);
+                call.enqueue(new Callback<JsonObject>() {
                     @Override
-                    public void onResponse(Call<String> call, Response<String> response) {
-                        Toast.makeText(LoginPage.this, "Logged In\n" + response.toString(), Toast.LENGTH_LONG).show();
+                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                        Toast.makeText(LoginPage.this, "Status: " + response.body().get("status"), Toast.LENGTH_LONG).show();
                     }
 
                     @Override
-                    public void onFailure(Call<String> call, Throwable t) {
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
                         Toast.makeText(LoginPage.this, t.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });

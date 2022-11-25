@@ -1,5 +1,7 @@
 package com.example.fitems.Classes;
 
+import com.google.gson.JsonObject;
+
 import retrofit2.Call;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
@@ -9,5 +11,5 @@ public interface ApiInterface {
 
     @FormUrlEncoded
     @POST("/login")
-    Call<String> makeLogIn(@Field("username") String username, @Field("password") String password);
+    Call<JsonObject> makeLogIn(@Field("username") String username, @Field("password") String password);
 }
