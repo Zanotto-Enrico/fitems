@@ -65,6 +65,11 @@ public class LoginPage extends AppCompatActivity {
                     @Override
                     public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                         Toast.makeText(LoginPage.this, "Status: " + response.body().get("status"), Toast.LENGTH_LONG).show();
+
+                        if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
+                            Intent i = new Intent(view.getContext(), MainActivity.class);
+                            view.getContext().startActivity(i);
+                        }
                     }
 
                     @Override
@@ -73,8 +78,7 @@ public class LoginPage extends AppCompatActivity {
                     }
                 });
 
-                Intent i = new Intent(view.getContext(), MainActivity.class);
-                view.getContext().startActivity(i);
+
             }
         });
     }
