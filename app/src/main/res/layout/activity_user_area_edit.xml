@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/primaryDark"
-    tools:context=".UserArea">
+    tools:context=".UserAreaEdit">
 
     <ImageButton
         android:id="@+id/btnBack"
@@ -16,7 +16,7 @@
         android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+        app:srcCompat="@drawable/ic_baseline_close_24" />
 
     <ImageButton
         android:id="@+id/btnEdit"
@@ -27,7 +27,7 @@
         android:background="@null"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_mode_edit_24" />
+        app:srcCompat="@drawable/ic_baseline_check_24" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline"
@@ -108,17 +108,15 @@
                 android:paddingBottom="6sp"
                 android:text="Name"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/txtName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
+                android:ems="8"
                 android:textColor="@color/white"
                 android:textAlignment="center"
                 android:paddingTop="15sp"
-                android:paddingBottom="15sp"
-                android:text="Filippo"
-                android:background="@drawable/rounded_corners"/>
+                android:paddingBottom="15sp"/>
 
         </LinearLayout>
 
@@ -128,6 +126,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/info"
             android:layout_toRightOf="@id/rLinearLayout"
+
             android:orientation="vertical">
 
             <TextView
@@ -138,15 +137,13 @@
                 android:paddingBottom="6sp"
                 android:text="Last Name"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/txtLastName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/rounded_corners"
-                android:ems="10"
-                android:paddingTop="15dp"
+                android:ems="8"
+                android:paddingTop="15sp"
                 android:paddingBottom="15sp"
-                android:text="Filippo"
                 android:textAlignment="center"
                 android:textColor="@color/white" />
 
@@ -166,16 +163,15 @@
                 android:paddingBottom="6sp"
                 android:text="Email"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/txtEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="16"
+                android:ems="14"
                 android:textAlignment="center"
-                android:paddingBottom="15sp"
-                android:paddingTop="15sp"
                 android:textColor="@color/white"
-                android:background="@drawable/rounded_corners"/>
+                android:paddingTop="15sp"
+                android:paddingBottom="15sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -185,16 +181,15 @@
                 android:paddingBottom="6sp"
                 android:text="Location"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/txtLocation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="13"
+                android:ems="12"
                 android:textAlignment="center"
-                android:paddingBottom="15sp"
-                android:paddingTop="15sp"
                 android:textColor="@color/white"
-                android:background="@drawable/rounded_corners"/>
+                android:paddingTop="15sp"
+                android:paddingBottom="15sp"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -204,17 +199,15 @@
                 android:paddingBottom="6sp"
                 android:text="Phone"/>
 
-            <TextView
+            <EditText
                 android:id="@+id/txtPhone"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="13"
+                android:ems="12"
                 android:textAlignment="center"
-                android:paddingBottom="15sp"
-                android:paddingTop="15sp"
                 android:textColor="@color/white"
-                android:background="@drawable/rounded_corners"
-                />
+                android:paddingTop="15sp"
+                android:paddingBottom="15sp"/>
 
         </LinearLayout>
 
