@@ -26,8 +26,7 @@ public interface ApiInterface {
                               @Field("cognome") String cognome,
                               @Field("email") String email,
                               @Field("latitudine") Double latitudine,
-                              @Field("longitudine") Double longitudine,
-                              @Field("data") String data);
+                              @Field("longitudine") Double longitudine);
 
     @GET("/post")
     Call<JsonObject> post(@Field("limite") Integer limite,
@@ -54,6 +53,16 @@ public interface ApiInterface {
     @GET("/visualizza")
     Call<JsonObject> visualizza(@Field("mittente") String mittente);
 
+    @FormUrlEncoded
+    @POST("/myInfo")
+    Call<JsonObject> updateMyInfo(@Field("nome") String nome,
+                                  @Field("cognome") String cognome,
+                                  @Field("email") String email,
+                                  @Field("latitudine") Double latitudine,
+                                  @Field("longitudine") Double longitudine);
+
+    @GET("/myInfo")
+    Call<JsonObject> getMyInfo();
 
 
     // ---- TODO -----------------------------------------------------------
