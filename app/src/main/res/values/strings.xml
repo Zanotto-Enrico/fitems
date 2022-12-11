@@ -7,6 +7,11 @@
 
     <string name="username">Username</string>
     <string name="password">Password</string>
+    <string name="nome">Nome</string>
+    <string name="cognome">Cognome</string>
+    <string name="ripeti_password">Ripeti password</string>
+    <string name="indirizzo">Indirizzo rappresentante il tuo quartiere</string>
+    <string name="email">Indirizzo e-mail</string>
 
 
 </resources>
