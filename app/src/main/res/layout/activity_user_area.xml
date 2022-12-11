@@ -40,11 +40,12 @@
         android:id="@+id/linear_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
         android:layout_marginStart="16sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/guideline">
+        app:layout_constraintTop_toBottomOf="@id/guideline"
+        app:layout_constraintEnd_toEndOf="parent">
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/user_image"
@@ -58,8 +59,8 @@
             android:src="@drawable/ic_launcher_foreground"/>
 
         <Space
-            android:layout_width="15sp"
-            android:layout_height="wrap_content"/>
+            android:layout_width="wrap_content"
+            android:layout_height="15sp"/>
 
 
         <TextView
@@ -175,7 +176,7 @@
                 android:paddingBottom="15sp"
                 android:paddingTop="15sp"
                 android:textColor="@color/white"
-                android:background="@drawable/rounded_corners"/>
+                android:background="@drawable/rounded_corners" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -202,13 +203,13 @@
                 android:textColor="@color/white"
                 android:paddingTop="15sp"
                 android:paddingBottom="6sp"
-                android:text="Phone"/>
+                android:text="Post pubblicati"/>
 
             <TextView
-                android:id="@+id/txtPhone"
+                android:id="@+id/txtPost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="13"
+                android:ems="10"
                 android:textAlignment="center"
                 android:paddingBottom="15sp"
                 android:paddingTop="15sp"

@@ -8,5 +8,12 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
 
+    <string name="name">Name</string>
+    <string name="lastname">LastName</string>
+    <string name="email">Email</string>
+    <string name="location">Location</string>
+
+    <string name="input_error">Input non valido</string>
+
 
 </resources>
