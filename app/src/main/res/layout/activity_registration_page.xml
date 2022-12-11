@@ -8,7 +8,7 @@
     tools:context=".RegistrationPage">
 
     <ImageButton
-        android:id="@+id/btnIndex3"
+        android:id="@+id/btnIndex_registration"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
@@ -31,13 +31,13 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnIndex3" />
+        app:layout_constraintTop_toBottomOf="@+id/btnIndex_registration" />
 
     <ScrollView
         android:layout_width="348dp"
         android:layout_height="459dp"
         android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/button3"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrati_registration"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
@@ -146,11 +146,28 @@
                 app:prefixTextColor="@color/white"
                 tools:ignore="TextContrastCheck" />
 
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="30dp" />
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtEmail_registration"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:hint="@string/email"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white"
+                app:boxStrokeColor="@color/white"
+                app:hintTextColor="@color/white"
+                app:placeholderTextColor="@color/white"
+                app:prefixTextColor="@color/white"
+                tools:ignore="TextContrastCheck" />
+
         </LinearLayout>
     </ScrollView>
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/btnRegistrati_registration"
         android:layout_width="210sp"
         android:layout_height="80sp"
         android:layout_marginBottom="16dp"

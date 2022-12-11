@@ -73,6 +73,7 @@
                 android:id="@+id/txtPassword"
                 android:layout_width="match_parent"
                 android:layout_height="65sp"
+                android:inputType="textPassword"
                 android:hint="@string/password"
                 android:textColor="@color/accent" />
         </com.google.android.material.textfield.TextInputLayout>
