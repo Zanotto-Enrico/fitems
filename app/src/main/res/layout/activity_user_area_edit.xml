@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryDark"
+    tools:context=".UserAreaEdit">
+
+    <ImageButton
+        android:id="@+id/btnClose"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_close_24" />
+
+    <ImageButton
+        android:id="@+id/btnEdit"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:background="@null"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_check_24" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        android:paddingLeft="16sp"
+        android:paddingTop="16sp"
+        app:layout_constraintTop_toBottomOf="@id/guideline">
+
+        <LinearLayout
+            android:id="@+id/upLinearLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ed_user_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guideline"
+                app:civ_border_width="2sp"
+                app:civ_border_color="@color/primaryDark"
+                app:civ_circle_background_color="@color/white"
+                android:src="@drawable/ic_launcher_foreground"/>
+
+
+
+            <TextView
+                android:id="@+id/edUsername"
+                android:layout_width="250sp"
+                android:layout_height="65sp"
+                android:textColorHint="@color/white"
+                android:text="Filippo Orsi"
+                android:gravity="center_vertical"
+                android:textColor="@color/accent"
+                android:layout_marginLeft="10sp"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_below="@id/upLinearLayout"
+            android:layout_marginTop="25sp">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputName"
+                android:layout_width="250sp"
+                android:layout_height="80sp"
+                android:textColorHint="@color/accent"
+                app:boxBackgroundColor="@color/primaryDark"
+                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                app:boxStrokeColor="@color/accent"
+                app:hintTextColor="@color/accent"
+                app:placeholderTextColor="@color/accent"
+                app:prefixTextColor="@color/accent"
+                android:layout_marginBottom="16sp">
+
+                <EditText
+                    android:id="@+id/edName"
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:hint="@string/nome"
+                    android:textAlignment="center"
+                    android:textColor="@color/accent" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLastName"
+                android:layout_width="250sp"
+                android:layout_height="80sp"
+                android:textColorHint="@color/accent"
+                app:boxBackgroundColor="@color/primaryDark"
+                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                app:boxStrokeColor="@color/accent"
+                app:hintTextColor="@color/accent"
+                app:placeholderTextColor="@color/accent"
+                app:prefixTextColor="@color/accent"
+                android:layout_marginBottom="16sp">
+
+                <EditText
+                    android:id="@+id/edLastName"
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:hint="@string/cognome"
+                    android:textColor="@color/accent"
+                    android:textAlignment="center"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputEmail"
+                android:layout_width="350sp"
+                android:layout_height="80sp"
+                android:textColorHint="@color/accent"
+                app:boxBackgroundColor="@color/primaryDark"
+                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                app:boxStrokeColor="@color/accent"
+                app:hintTextColor="@color/accent"
+                app:placeholderTextColor="@color/accent"
+                app:prefixTextColor="@color/accent"
+                android:layout_marginBottom="16sp">
+
+                <EditText
+                    android:id="@+id/edEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:hint="@string/email"
+                    android:textColor="@color/accent"
+                    android:textAlignment="center"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputLocation"
+                android:layout_width="300sp"
+                android:layout_height="80sp"
+                android:textColorHint="@color/accent"
+                app:boxBackgroundColor="@color/primaryDark"
+                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                app:boxStrokeColor="@color/accent"
+                app:hintTextColor="@color/accent"
+                app:placeholderTextColor="@color/accent"
+                app:prefixTextColor="@color/accent"
+                android:layout_marginBottom="16sp">
+
+                <EditText
+                    android:id="@+id/edLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="60sp"
+                    android:hint="@string/indirizzo1"
+                    android:textColor="@color/accent"
+                    android:textAlignment="center"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

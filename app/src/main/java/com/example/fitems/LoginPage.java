@@ -13,6 +13,7 @@ import android.widget.Toast;
 
 import com.example.fitems.Classes.ApiInterface;
 import com.example.fitems.Classes.RetrofitClient;
+import com.example.fitems.Classes.User;
 import com.google.gson.JsonObject;
 
 import retrofit2.Call;
@@ -26,7 +27,6 @@ public class LoginPage extends AppCompatActivity {
     private Button btnAccedi;
     private TextView txtUsername;
     private TextView txtPassword;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

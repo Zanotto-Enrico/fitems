@@ -29,6 +29,8 @@ public class RegistrationPage extends AppCompatActivity {
     private Button btnRegistrati;
     private ImageButton btnIndex;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

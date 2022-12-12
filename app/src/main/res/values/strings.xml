@@ -11,7 +11,10 @@
     <string name="cognome">Cognome</string>
     <string name="ripeti_password">Ripeti password</string>
     <string name="indirizzo">Indirizzo rappresentante il tuo quartiere</string>
-    <string name="email">Indirizzo e-mail</string>
+    <string name="email">Email</string>
+
+    <string name="indirizzo1">Indirizzo</string>
+    <string name="input_error">Input non valido</string>
 
 
 </resources>
