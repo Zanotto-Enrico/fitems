@@ -10,13 +10,35 @@ import java.util.List;
 
 public class LatLonGenerator {
 
+    /**
+     * Metodo avente il compito di convertire l'indirizzo passato sotto forma di stringa in coordinate
+     * latitudine e longitudine in formato double
+     * @param address l'indirzzo da convertire
+     * @param c contesto in cui l'applicativo si ritrova al momento della chiamata
+     * @return <code>Pair{@literal <}Double, Double></code> nell'ordine contenente longitudine e latitudine
+     * @throws IOException in caso di fallimento del metodo di localizzazione
+     */
     public static Pair<Double, Double> getCoordinatesFromAddress(String address, Context c) throws IOException {
         Geocoder geocoder = new Geocoder(c);
         List<Address> addresses = geocoder.getFromLocationName(address, 1);
         Address a = addresses.get(0);
-        double longitudine = a.getLongitude();
-        double latitudine = a.getLatitude();
 
-        return new Pair<>(latitudine, longitudine);
+        return new Pair<>(a.getLongitude(), a.getLatitude());
+    }
+
+    /**
+     * Metodo avente il compito di risolvere le coordinate passate come parametro al metodo nel
+     * corrispettivo indirizzo sotto forma di stringa
+     * @param latitudine
+     * @param longitudine
+     * @param c contesto in cui l'applicativo si ritrova al momento della chiamata
+     * @return stringa contenente l'indirizzo trovato
+     * @throws IOException in caso di fallimento del metodo di localizzazione
+     */
+    public static String getAddressFromCoordinates(double latitudine, double longitudine, Context c) throws IOException {
+        Geocoder geocoder = new Geocoder(c);
+        List<Address> addresses = geocoder.getFromLocation(latitudine, longitudine, 1);
+
+        return addresses.get(0).getAddressLine(0).toString();
     }
 }
