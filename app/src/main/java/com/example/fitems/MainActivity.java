@@ -10,9 +10,11 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.example.fitems.Classes.ApiInterface;
+import com.example.fitems.Classes.CustomListAdapter_Home;
 import com.example.fitems.Classes.LatLonGenerator;
 import com.example.fitems.Classes.Post;
 import com.example.fitems.Classes.RetrofitClient;
@@ -30,6 +32,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btnAccount;
+    private ListView listViewPost;
 
     private List<Post> posts;
 
@@ -39,16 +42,18 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         setContentView(R.layout.activity_main);
+        this.posts = new ArrayList<>();
+
+        setPosts();
 
         connectWithGraphic();
         addListenerToWidgets();
-
-        setPosts();
     }
 
 
     private void connectWithGraphic() {
         this.btnAccount = findViewById(R.id.btnAccount_homepage);
+        this.listViewPost = findViewById(R.id.listPosts_home);
     }
 
 
@@ -60,11 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 view.getContext().startActivity(i);
             }
         });
-
     }
 
     private void setPosts() {
-        this.posts = new ArrayList<>();
         ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
 
         Call<JsonObject> call = apiInterface.post();
@@ -73,11 +76,16 @@ public class MainActivity extends AppCompatActivity {
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                 int i = 1;
 
-                while (i <= response.body().size()) {
-                    Post p = new Gson().fromJson(response.body().get(Integer.toString(i)).toString(), Post.class);
-                    posts.add(p);
+                synchronized (posts) {
+                    while (i <= response.body().size()) {
+                        Post p = new Gson().fromJson(response.body().get(Integer.toString(i)).toString(), Post.class);
+                        posts.add(p);
 
-                    i++;
+                        i++;
+                    }
+
+                    CustomListAdapter_Home adapter = new CustomListAdapter_Home(getApplicationContext(), posts);
+                    listViewPost.setAdapter(adapter);
                 }
             }
 

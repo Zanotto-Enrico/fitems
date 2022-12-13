@@ -8,17 +8,17 @@
     tools:context=".ListViewPostsCells">
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/lblTitoloPost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:height="30dp"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="20dp"
         android:text="Titolo" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/lblDescrizionePost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:height="50dp"
