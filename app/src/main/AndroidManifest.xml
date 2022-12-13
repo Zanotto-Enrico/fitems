@@ -57,6 +57,22 @@
                 android:value="" />
         </activity>
 
+        <activity
+            android:name=".UserArea"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
+        <activity
+            android:name=".UserAreaEdit"
+            android:exported="false">
+            <meta-data
+                android:name="android.app.lib_name"
+                android:value="" />
+        </activity>
+
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />

@@ -74,7 +74,8 @@ public class UserArea extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                // TODO --> Create the pages to go to
+                Intent i = new Intent(view.getContext(), MainActivity.class);
+                view.getContext().startActivity(i);
             }
         });
     }
