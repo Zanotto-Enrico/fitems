@@ -34,6 +34,9 @@ public interface ApiInterface {
                           @Field("latitudine") Double latitudine,
                           @Field("longitudine") Double longitudine);
 
+    @GET("/post")
+    Call<JsonObject> post();
+
     @FormUrlEncoded
     @POST("/makepost")
     Call<JsonObject> makePost(@Field("titolo") String titolo,
