@@ -19,9 +19,13 @@ import com.example.fitems.Classes.LatLonGenerator;
 import com.example.fitems.Classes.Post;
 import com.example.fitems.Classes.RetrofitClient;
 import com.google.gson.Gson;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import com.google.gson.reflect.TypeToken;
 
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -74,17 +78,17 @@ public class MainActivity extends AppCompatActivity {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                int i = 1;
 
                 synchronized (posts) {
-                    while (i <= response.body().size()) {
-                        Post p = new Gson().fromJson(response.body().get(Integer.toString(i)).toString(), Post.class);
-                        posts.add(p);
 
-                        i++;
+                    Type listType = new TypeToken<ArrayList<Post>>(){}.getType();
+                    ArrayList<Post> post = new Gson().fromJson(response.body().getAsJsonArray("post"), listType);
+                    JsonArray array = response.body().getAsJsonArray("post");
+                    for (JsonElement var : array)
+                    {
+                        posts.add( new Gson().fromJson(var, Post.class));
                     }
-
-                    CustomListAdapter_Home adapter = new CustomListAdapter_Home(getApplicationContext(), posts);
+                    CustomListAdapter_Home adapter = new CustomListAdapter_Home(getApplicationContext(), post);
                     listViewPost.setAdapter(adapter);
                 }
             }
