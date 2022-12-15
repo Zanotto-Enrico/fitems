@@ -36,6 +36,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btnAccount;
+    private ImageButton btnNewPost;
     private ListView listViewPost;
 
     private List<Post> posts;
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     private void connectWithGraphic() {
         this.btnAccount = findViewById(R.id.btnAccount_homepage);
         this.listViewPost = findViewById(R.id.listPosts_home);
+        this.btnNewPost = findViewById(R.id.btnAddPost);
     }
 
 
@@ -66,6 +68,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), UserArea.class);
+                view.getContext().startActivity(i);
+            }
+        });
+
+        this.btnNewPost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), MakePostView.class);
                 view.getContext().startActivity(i);
             }
         });
