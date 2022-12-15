@@ -16,5 +16,8 @@
     <string name="indirizzo1">Indirizzo</string>
     <string name="input_error">Input non valido</string>
 
+    <string name="open_s">Aperto</string>
+    <string name="close_s">Chiuso</string>
+
 
 </resources>
