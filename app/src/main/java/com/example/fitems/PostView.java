@@ -46,7 +46,7 @@ public class PostView extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         this.txtUsername.setText(bundle.getString("username"));
-        this.txtStato.setText(bundle.getInt("stato"));
+        this.txtStato.setText(bundle.getString("stato"));
         this.txtData.setText(bundle.getString("data"));
         this.txtDescrizione.setText(bundle.getString("descrizione"));
     }
