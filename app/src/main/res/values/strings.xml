@@ -3,8 +3,11 @@
     <string name="accedi">Accedi</string>
     <string name="registrati">Registrati</string>
     <string name="login">Login</string>
+    <string name="CreaPost">Crea Post</string>
 
 
+    <string name="nomePost">Nome oggetto perso</string>
+    <string name="descrzionePost">Descrizione dell\'oggetto</string>
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="nome">Nome</string>

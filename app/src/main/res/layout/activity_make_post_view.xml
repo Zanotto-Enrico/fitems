@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryDark"
+    tools:context=".MakePostView">
+
+
+    <ImageButton
+        android:id="@+id/btnIndex3"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck,DuplicateClickableBoundsCheck" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/btnPubblica"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/CreaPost"
+            android:textColor="@color/accent"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20sp"
+            android:layout_marginBottom="10sp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:width="100sp"
+                    android:text="Aggiungi una foto"
+                    android:textAlignment="center"
+                    android:textColor="@color/accent"
+                    android:textSize="18sp" />
+            </LinearLayout>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ed_user_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_launcher_foreground"
+                app:civ_border_color="@color/primaryDark"
+                app:civ_border_width="2sp"
+                app:civ_circle_background_color="@color/white"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/guideline" />
+        </LinearLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="250sp"
+            android:layout_height="80sp"
+            android:textColorHint="@color/accent"
+            app:boxBackgroundColor="@color/primaryDark"
+            app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+            app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+            app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+            app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+            app:boxStrokeColor="@color/accent"
+            app:hintTextColor="@color/accent"
+            app:placeholderTextColor="@color/accent"
+            app:prefixTextColor="@color/accent">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/txtTitolo"
+                android:layout_width="match_parent"
+                android:layout_height="65sp"
+                android:hint="@string/nomePost"
+                android:inputType="textPersonName"
+                android:textColor="@color/accent" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <EditText
+            android:id="@+id/txtDescrizione"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15sp"
+            android:background="@drawable/rounded_corners"
+            android:gravity="start"
+            android:hint="@string/descrzionePost"
+            android:lines="8"
+            android:paddingTop="15sp"
+            android:paddingBottom="15sp"
+            android:textAlignment="gravity"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnPubblica"
+        android:layout_width="210sp"
+        android:layout_height="80sp"
+        android:layout_marginBottom="24dp"
+        android:backgroundTint="@color/primaryLight"
+        android:text="Pubblica"
+        android:textColor="@color/accent"
+        android:textSize="20sp"
+        app:cornerRadius="@dimen/btnCornerRadius"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+</androidx.constraintlayout.widget.ConstraintLayout>
