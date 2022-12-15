@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -77,6 +78,22 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), MakePostView.class);
                 view.getContext().startActivity(i);
+            }
+        });
+
+        this.listViewPost.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(MainActivity.this, PostView.class);
+
+                // sto cercando di avviare una activity da un punto esterno a quello del contesto corrente
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+                intent.putExtra("username", posts.get(i).getUsername());
+                intent.putExtra("stato", posts.get(i).getStato());
+                intent.putExtra("data", posts.get(i).getData());
+                intent.putExtra("descrizione", posts.get(i).getDescrizione());
+                view.getContext().startActivity(intent);
             }
         });
     }

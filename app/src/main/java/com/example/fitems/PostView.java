@@ -35,24 +35,24 @@ public class PostView extends AppCompatActivity {
     }
 
     private void connectWithGraphic(){
-        txtUsername = findViewById(R.id.txtUsername);
-        txtStato = findViewById(R.id.txtStato);
-        txtDescrizione = findViewById(R.id.txtSDescrizione);
-        txtData = findViewById(R.id.txtDate);
-        btnBack = findViewById(R.id.btnBack);
+        this.txtUsername = findViewById(R.id.txtUsername);
+        this.txtStato = findViewById(R.id.txtStato);
+        this.txtDescrizione = findViewById(R.id.txtSDescrizione);
+        this.txtData = findViewById(R.id.txtDate);
+        this.btnBack = findViewById(R.id.btnBack_PostView);
     }
 
     private void setGraphics(){
         Bundle bundle = getIntent().getExtras();
 
-        txtUsername.setText(bundle.getString("username"));
-        txtStato.setText(bundle.getInt("stato"));
-        txtData.setText(bundle.getString("data"));
-        txtDescrizione.setText(bundle.getString("descrizione"));
+        this.txtUsername.setText(bundle.getString("username"));
+        this.txtStato.setText(bundle.getInt("stato"));
+        this.txtData.setText(bundle.getString("data"));
+        this.txtDescrizione.setText(bundle.getString("descrizione"));
     }
 
     private void setListeners(){
-        btnBack.setOnClickListener(new View.OnClickListener() {
+        this.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(PostView.this, MainActivity.class);

@@ -8,7 +8,7 @@
     android:background="@color/primaryDark">
 
     <ImageButton
-        android:id="@+id/btnBack"
+        android:id="@+id/btnBack_PostView"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_marginStart="16dp"
@@ -23,7 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.08"/>
+        app:layout_constraintGuide_begin="59dp" />
 
     <LinearLayout
         android:id="@+id/llayout_image"

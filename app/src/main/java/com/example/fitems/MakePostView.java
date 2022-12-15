@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,9 +24,11 @@ import retrofit2.Response;
 
 public class MakePostView extends AppCompatActivity {
 
-    Button btnPubblica;
-    TextView txtTitolo;
-    TextView txtDescrizione;
+    private Button btnPubblica;
+    private TextView txtTitolo;
+    private TextView txtDescrizione;
+    private ImageButton btnBack;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,8 +37,26 @@ public class MakePostView extends AppCompatActivity {
         setContentView(R.layout.activity_make_post_view);
 
         connectWithGraphic();
+        addListenerToWidgets();
+    }
 
-        btnPubblica.setOnClickListener(new View.OnClickListener() {
+    private void connectWithGraphic() {
+        this.btnPubblica = findViewById(R.id.btnPubblica);
+        this.txtDescrizione = findViewById(R.id.txtDescrizione);
+        this.txtTitolo = findViewById(R.id.txtTitolo);
+        this.btnBack = findViewById(R.id.btnBack_MakePostView);
+    }
+
+    private void addListenerToWidgets() {
+        this.btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(MakePostView.this, MainActivity.class);
+                startActivity(i);
+            }
+        });
+
+        this.btnPubblica.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
@@ -45,13 +66,6 @@ public class MakePostView extends AppCompatActivity {
                 }
             }
         });
-    }
-
-    private void connectWithGraphic() {
-        this.btnPubblica = findViewById(R.id.btnPubblica);
-        this.txtDescrizione = findViewById(R.id.txtDescrizione);
-        this.txtTitolo = findViewById(R.id.txtTitolo);
-
     }
 
     private void createNewPost( String titolo, String descrizione )throws IOException {

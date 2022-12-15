@@ -2,7 +2,7 @@ package com.example.fitems.Classes;
 
 import java.util.Objects;
 
-public class    Post {
+public class Post {
     private String titolo, descrizione, data, username;
     private int stato;
 
