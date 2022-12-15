@@ -94,14 +94,9 @@ public class RegistrationPage extends AppCompatActivity {
         this.btnIndex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goBackFirstPage(view);
+                finish();
             }
         });
-    }
-
-    private void goBackFirstPage(View view) {
-        Intent i = new Intent(view.getContext(), FirstPage.class);
-        view.getContext().startActivity(i);
     }
 
     private void registerUser(User u, View v) throws IOException {
@@ -115,7 +110,7 @@ public class RegistrationPage extends AppCompatActivity {
 
                 if(response.body().get("status").toString().equals("\"SUCCESS\"")) {
                     Toast.makeText(RegistrationPage.this, "Utente creato con successo!", Toast.LENGTH_LONG).show();
-                    goBackFirstPage(v);
+                    finish();
                 }
             }
 

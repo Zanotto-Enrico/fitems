@@ -110,6 +110,7 @@
                     android:id="@+id/edName"
                     android:layout_width="match_parent"
                     android:layout_height="60sp"
+                    android:inputType="textPersonName"
                     android:hint="@string/nome"
                     android:textAlignment="center"
                     android:textColor="@color/accent" />
@@ -137,6 +138,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="60sp"
                     android:hint="@string/cognome"
+                    android:inputType="textPersonName"
                     android:textColor="@color/accent"
                     android:textAlignment="center"/>
 

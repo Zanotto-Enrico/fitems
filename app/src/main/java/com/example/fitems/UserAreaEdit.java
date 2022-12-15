@@ -83,8 +83,6 @@ public class UserAreaEdit extends AppCompatActivity {
                 if(response.body().get("status").toString().equals("\"SUCCESS\"")) {
                     Toast.makeText(UserAreaEdit.this, "I dati sono stati aggiornati con successo!", Toast.LENGTH_LONG).show();
 
-                    Intent i = new Intent(v.getContext(), UserArea.class);
-                    v.getContext().startActivity(i);
                     finish();
                 }
             }
@@ -101,8 +99,6 @@ public class UserAreaEdit extends AppCompatActivity {
         btnClose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), UserArea.class);
-                view.getContext().startActivity(i);
                 finish();
             }
         });

@@ -77,8 +77,7 @@ public class UserArea extends AppCompatActivity {
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), MainActivity.class);
-                view.getContext().startActivity(i);
+                finish();
             }
         });
     }

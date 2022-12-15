@@ -35,7 +35,7 @@
 
     <ScrollView
         android:layout_width="348dp"
-        android:layout_height="459dp"
+        android:layout_height="400dp"
         android:layout_marginTop="24dp"
         app:layout_constraintBottom_toTopOf="@+id/btnRegistrati_registration"
         app:layout_constraintEnd_toEndOf="parent"
@@ -46,122 +46,173 @@
 
         <LinearLayout
             android:layout_width="match_parent"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtNome_registration"
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="@string/nome"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                app:boxStrokeColor="@color/white"
-                app:hintTextColor="@color/white"
-                app:placeholderTextColor="@color/white"
-                app:prefixTextColor="@color/white" />
+                android:layout_height="80sp"
+                android:textColorHint="@color/accent"
+                app:boxBackgroundColor="@color/primaryDark"
+                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                app:boxStrokeColor="@color/accent"
+                app:hintTextColor="@color/accent"
+                app:placeholderTextColor="@color/accent"
+                app:prefixTextColor="@color/accent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtNome_registration"
+                    android:layout_width="match_parent"
+                    android:layout_height="65sp"
+                    android:inputType="textPersonName"
+                    android:hint="@string/nome"
+                    android:textColor="@color/accent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="80sp"
+                android:textColorHint="@color/accent"
+                app:boxBackgroundColor="@color/primaryDark"
+                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                app:boxStrokeColor="@color/accent"
+                app:hintTextColor="@color/accent"
+                app:placeholderTextColor="@color/accent"
+                app:prefixTextColor="@color/accent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtCognome_registration"
+                    android:layout_width="match_parent"
+                    android:layout_height="65sp"
+                    android:inputType="textPersonName"
+                    android:hint="@string/cognome"
+                    android:textColor="@color/accent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="80sp"
+                android:textColorHint="@color/accent"
+                app:boxBackgroundColor="@color/primaryDark"
+                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                app:boxStrokeColor="@color/accent"
+                app:hintTextColor="@color/accent"
+                app:placeholderTextColor="@color/accent"
+                app:prefixTextColor="@color/accent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtUsername_registration"
+                    android:layout_width="match_parent"
+                    android:layout_height="65sp"
+                    android:inputType="textPersonName"
+                    android:hint="@string/username"
+                    android:textColor="@color/accent" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="80sp"
+                android:textColorHint="@color/accent"
+                app:boxBackgroundColor="@color/primaryDark"
+                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                app:boxStrokeColor="@color/accent"
+                app:hintTextColor="@color/accent"
+                app:placeholderTextColor="@color/accent"
+                app:prefixTextColor="@color/accent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtPassword1_registration"
+                    android:layout_width="match_parent"
+                    android:layout_height="65sp"
+                    android:inputType="textPassword"
+                    android:hint="@string/password"
+                    android:textColor="@color/accent" />
+            </com.google.android.material.textfield.TextInputLayout>
 
 
-            <Space
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp" />
+                android:layout_height="80sp"
+                android:textColorHint="@color/accent"
+                app:boxBackgroundColor="@color/primaryDark"
+                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                app:boxStrokeColor="@color/accent"
+                app:hintTextColor="@color/accent"
+                app:placeholderTextColor="@color/accent"
+                app:prefixTextColor="@color/accent">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtCognome_registration"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="@string/cognome"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                app:boxStrokeColor="@color/white"
-                app:hintTextColor="@color/white"
-                app:placeholderTextColor="@color/white"
-                app:prefixTextColor="@color/white" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtPassword2_registration"
+                    android:layout_width="match_parent"
+                    android:layout_height="65sp"
+                    android:inputType="textPassword"
+                    android:hint="@string/ripeti_password"
+                    android:textColor="@color/accent" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <Space
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp" />
+                android:layout_height="80sp"
+                android:textColorHint="@color/accent"
+                app:boxBackgroundColor="@color/primaryDark"
+                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                app:boxStrokeColor="@color/accent"
+                app:hintTextColor="@color/accent"
+                app:placeholderTextColor="@color/accent"
+                app:prefixTextColor="@color/accent">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtUsername_registration"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="@string/username"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                app:boxStrokeColor="@color/white"
-                app:hintTextColor="@color/white"
-                app:placeholderTextColor="@color/white"
-                app:prefixTextColor="@color/white"
-                tools:ignore="TextContrastCheck" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtIndirizzo_registration"
+                    android:layout_width="match_parent"
+                    android:layout_height="65sp"
+                    android:inputType="textEmailAddress"
+                    android:hint="@string/indirizzo"
+                    android:textColor="@color/accent" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <Space
+            <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="30dp" />
+                android:layout_height="80sp"
+                android:textColorHint="@color/accent"
+                app:boxBackgroundColor="@color/primaryDark"
+                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                app:boxStrokeColor="@color/accent"
+                app:hintTextColor="@color/accent"
+                app:placeholderTextColor="@color/accent"
+                app:prefixTextColor="@color/accent">
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtPassword1_registration"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="@string/password"
-                android:inputType="textPassword"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                app:boxStrokeColor="@color/white"
-                app:hintTextColor="@color/white"
-                app:placeholderTextColor="@color/white"
-                app:prefixTextColor="@color/white" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/txtEmail_registration"
+                    android:layout_width="match_parent"
+                    android:layout_height="65sp"
+                    android:inputType="textPersonName"
+                    android:hint="@string/email"
+                    android:textColor="@color/accent" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="30dp" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtPassword2_registration"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="@string/ripeti_password"
-                android:inputType="textPassword"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                app:boxStrokeColor="@color/white"
-                app:hintTextColor="@color/white"
-                app:placeholderTextColor="@color/white"
-                app:prefixTextColor="@color/white" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="30dp" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtIndirizzo_registration"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="@string/indirizzo"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                app:boxStrokeColor="@color/white"
-                app:hintTextColor="@color/white"
-                app:placeholderTextColor="@color/white"
-                app:prefixTextColor="@color/white"
-                tools:ignore="TextContrastCheck" />
-
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="30dp" />
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/txtEmail_registration"
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:hint="@string/email"
-                android:textColor="@color/white"
-                android:textColorHint="@color/white"
-                app:boxStrokeColor="@color/white"
-                app:hintTextColor="@color/white"
-                app:placeholderTextColor="@color/white"
-                app:prefixTextColor="@color/white"
-                tools:ignore="TextContrastCheck" />
 
         </LinearLayout>
     </ScrollView>

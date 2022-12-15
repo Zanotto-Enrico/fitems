@@ -36,8 +36,10 @@
 
     <ListView
         android:id="@+id/listPosts_home"
-        android:layout_width="379dp"
-        android:layout_height="497dp"
+        android:layout_marginLeft="10sp"
+        android:layout_marginRight="10sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
