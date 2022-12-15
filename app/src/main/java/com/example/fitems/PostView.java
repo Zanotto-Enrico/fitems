@@ -19,7 +19,7 @@ import retrofit2.Response;
 
 public class PostView extends AppCompatActivity {
 
-    private TextView txtUsername, txtStato, txtData, txtDescrizione;
+    private TextView txtUsername, txtStato, txtData, txtDescrizione, txtTitolo;
     private ImageButton btnBack;
 
     @Override
@@ -40,15 +40,17 @@ public class PostView extends AppCompatActivity {
         this.txtDescrizione = findViewById(R.id.txtSDescrizione);
         this.txtData = findViewById(R.id.txtDate);
         this.btnBack = findViewById(R.id.btnBack_PostView);
+        this.txtTitolo = findViewById(R.id.txtTitolo_PostView);
     }
 
     private void setGraphics(){
         Bundle bundle = getIntent().getExtras();
 
         this.txtUsername.setText(bundle.getString("username"));
-        this.txtStato.setText(bundle.getString("stato"));
+        this.txtStato.setText((new Integer(bundle.getInt("stato"))).toString().equals("0")? "Chiuso" : "Aperto");
         this.txtData.setText(bundle.getString("data"));
         this.txtDescrizione.setText(bundle.getString("descrizione"));
+        this.txtTitolo.setText(bundle.getString("titolo"));
     }
 
     private void setListeners(){

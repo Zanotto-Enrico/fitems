@@ -93,6 +93,7 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("stato", posts.get(i).getStato());
                 intent.putExtra("data", posts.get(i).getData());
                 intent.putExtra("descrizione", posts.get(i).getDescrizione());
+                intent.putExtra("titolo", posts.get(i).getTitolo());
                 view.getContext().startActivity(intent);
             }
         });
