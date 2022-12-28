@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.08" />
+        app:layout_constraintGuide_percent="0.08071136" />
 
     <LinearLayout
         android:id="@+id/linear_layout"
@@ -220,5 +220,16 @@
         </LinearLayout>
 
     </RelativeLayout>
+
+    <ImageButton
+        android:id="@+id/btnLogOut_UserArea"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_baseline_logout_24" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

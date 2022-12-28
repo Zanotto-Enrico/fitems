@@ -58,6 +58,7 @@ public class PostView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(PostView.this, MainActivity.class);
+                view.getContext().startActivity(i);
                 finish();
             }
         });

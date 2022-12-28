@@ -11,6 +11,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class FirstPage extends AppCompatActivity {
 
@@ -26,7 +27,7 @@ public class FirstPage extends AppCompatActivity {
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         setContentView(R.layout.activity_first_page);
 
-        checkRecLogUsr = new CheckRecentlyLoggedUser(this.getSharedPreferences("fitems", Context.MODE_PRIVATE));
+        this.checkRecLogUsr = new CheckRecentlyLoggedUser(this.getSharedPreferences("fitems", Context.MODE_PRIVATE));
 
         if (checkRecLogUsr.isLoginValid()) {
             startActivity(new Intent(this, MainActivity.class));
@@ -63,6 +64,10 @@ public class FirstPage extends AppCompatActivity {
         Intent i = new Intent(FirstPage.this, goWhere);
         view.getContext().startActivity(i);
     }
+
+
+    @Override
+    public void onBackPressed() { }
 
 
 }

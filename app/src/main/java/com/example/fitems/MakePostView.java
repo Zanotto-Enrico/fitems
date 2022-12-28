@@ -53,6 +53,7 @@ public class MakePostView extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(MakePostView.this, MainActivity.class);
                 startActivity(i);
+                finish();
             }
         });
 
