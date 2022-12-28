@@ -3,6 +3,7 @@ package com.example.fitems;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,9 +13,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitems.Classes.ApiInterface;
+import com.example.fitems.Classes.CheckRecentlyLoggedUser;
+import com.example.fitems.Classes.MyDate;
 import com.example.fitems.Classes.RetrofitClient;
 import com.example.fitems.Classes.User;
 import com.google.gson.JsonObject;
+
+import java.time.LocalDateTime;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -28,22 +33,29 @@ public class LoginPage extends AppCompatActivity {
     private TextView txtUsername;
     private TextView txtPassword;
 
+    private CheckRecentlyLoggedUser checkRecLogUsr;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         setContentView(R.layout.activity_login_page);
+        this.checkRecLogUsr = new CheckRecentlyLoggedUser(this.getSharedPreferences("fitems", Context.MODE_PRIVATE));
 
-        // assegnamenti di tutti gli elementi della schermata di login
+        connectWithGraphic();
+        addListenerToWidgets();
+    }
+
+    private void connectWithGraphic() {
         this.btnIndex = (ImageButton)findViewById(R.id.btnIndex);
         this.btnAccedi = (Button) findViewById(R.id.btnAccedi);
         this.txtUsername = (TextView) findViewById(R.id.txtUsername);
         this.txtPassword = (TextView) findViewById(R.id.txtPassword);
+    }
 
 
-        // di seguito il codice dei listener di tutti i pulsanti dell'activity
-
+    private void addListenerToWidgets() {
         this.btnIndex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -67,6 +79,8 @@ public class LoginPage extends AppCompatActivity {
                         Toast.makeText(LoginPage.this, "Status: " + response.body().get("status"), Toast.LENGTH_LONG).show();
 
                         if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
+                            checkRecLogUsr.setAsLoggedOrNot(usrInserito, MyDate.getToday(), true);
+
                             Intent i = new Intent(view.getContext(), MainActivity.class);
                             view.getContext().startActivity(i);
                         }
@@ -82,4 +96,6 @@ public class LoginPage extends AppCompatActivity {
             }
         });
     }
+
+
 }
