@@ -116,7 +116,7 @@
             android:paddingTop="15sp"
             android:paddingBottom="15sp"
             android:textAlignment="gravity"
-            android:textColor="@color/white"
+            android:textColor="@color/primaryLight"
             android:textSize="16sp" />
 
     </LinearLayout>

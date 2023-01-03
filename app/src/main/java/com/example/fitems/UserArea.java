@@ -1,9 +1,11 @@
 package com.example.fitems;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.location.Address;
 import android.location.Geocoder;
@@ -91,10 +93,23 @@ public class UserArea extends AppCompatActivity {
         this.btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                checkRecLogUsr.setAsLoggedOrNot(currentUser.getUsername(), MyDate.getToday(), false);
 
-                Intent i = new Intent(UserArea.this, FirstPage.class);
-                view.getContext().startActivity(i);
+                AlertDialog.Builder altdial = new AlertDialog.Builder(UserArea.this);
+                altdial.setMessage("Confermi di voler uscire dalla piattaforma?").setCancelable(false)
+                                .setPositiveButton("Confermo", new DialogInterface.OnClickListener() {
+                                    @Override
+                                    public void onClick(DialogInterface dialogInterface, int in) {
+                                        checkRecLogUsr.logOut();
+
+                                        Intent i = new Intent(UserArea.this, FirstPage.class);
+                                        view.getContext().startActivity(i);
+                                    }
+                                })
+                                .setNegativeButton("No", null);
+
+                AlertDialog alert = altdial.create();
+                alert.setTitle("Attenzione!");
+                alert.show();
             }
         });
     }

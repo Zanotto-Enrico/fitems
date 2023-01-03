@@ -21,6 +21,7 @@
         android:id="@+id/lblDescrizionePost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textColor="@color/primaryLight"
         android:height="50dp"
         android:text="Descrizione" />
 </LinearLayout>

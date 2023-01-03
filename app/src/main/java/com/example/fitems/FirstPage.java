@@ -1,6 +1,10 @@
 package com.example.fitems;
 
+import com.example.fitems.Classes.ApiInterface;
 import com.example.fitems.Classes.CheckRecentlyLoggedUser;
+import com.example.fitems.Classes.MyDate;
+import com.example.fitems.Classes.RetrofitClient;
+import com.google.gson.JsonObject;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
@@ -9,9 +13,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class FirstPage extends AppCompatActivity {
 
@@ -27,11 +36,33 @@ public class FirstPage extends AppCompatActivity {
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         setContentView(R.layout.activity_first_page);
 
+        Context c = this;
+
         this.checkRecLogUsr = new CheckRecentlyLoggedUser(this.getSharedPreferences("fitems", Context.MODE_PRIVATE));
 
         if (checkRecLogUsr.isLoginValid()) {
-            startActivity(new Intent(this, MainActivity.class));
-            finish();
+            Pair<String,String> infos = this.checkRecLogUsr.getInfoUserLogged();
+
+            ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
+
+            Call<JsonObject> call = apiInterface.makeLogIn(infos.first, infos.second);
+
+            call.enqueue(new Callback<JsonObject>() {
+                @Override
+                public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                    Toast.makeText(FirstPage.this, "Status: " + response.body().get("status"), Toast.LENGTH_LONG).show();
+
+                    if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
+                        startActivity(new Intent(c, MainActivity.class));
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<JsonObject> call, Throwable t) {
+                    Toast.makeText(FirstPage.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                }
+            });
         }
 
         connectWithGraphic();

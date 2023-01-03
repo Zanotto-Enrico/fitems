@@ -48,10 +48,10 @@ public class LoginPage extends AppCompatActivity {
     }
 
     private void connectWithGraphic() {
-        this.btnIndex = (ImageButton)findViewById(R.id.btnIndex);
-        this.btnAccedi = (Button) findViewById(R.id.btnAccedi);
-        this.txtUsername = (TextView) findViewById(R.id.txtUsername);
-        this.txtPassword = (TextView) findViewById(R.id.txtPassword);
+        this.btnIndex = findViewById(R.id.btnIndex);
+        this.btnAccedi = findViewById(R.id.btnAccedi);
+        this.txtUsername = findViewById(R.id.txtUsername);
+        this.txtPassword = findViewById(R.id.txtPassword);
     }
 
 
@@ -70,7 +70,6 @@ public class LoginPage extends AppCompatActivity {
             public void onClick(View view) {
                 String usrInserito = txtUsername.getText().toString();
                 String pwdInserta = txtPassword.getText().toString();
-                String url = "login";
 
                 ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
                 Call<JsonObject> call = apiInterface.makeLogIn(usrInserito, pwdInserta);
@@ -80,7 +79,7 @@ public class LoginPage extends AppCompatActivity {
                         Toast.makeText(LoginPage.this, "Status: " + response.body().get("status"), Toast.LENGTH_LONG).show();
 
                         if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
-                            checkRecLogUsr.setAsLoggedOrNot(usrInserito, MyDate.getToday(), true);
+                            checkRecLogUsr.logIn(usrInserito, pwdInserta, MyDate.getToday(), true);
 
                             Intent i = new Intent(view.getContext(), MainActivity.class);
                             view.getContext().startActivity(i);
@@ -92,8 +91,6 @@ public class LoginPage extends AppCompatActivity {
                         Toast.makeText(LoginPage.this, t.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 });
-
-
             }
         });
     }
