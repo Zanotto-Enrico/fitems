@@ -123,11 +123,9 @@ public class UserArea extends AppCompatActivity {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 
-                currentUser = new User(response.body().get("username").toString(), response.body().get("nome").toString(),
-                                        response.body().get("cognome").toString(), "",response.body().get("email").toString(),
-                                        "");
+                //currentUser = new User(response.body().get("username").toString(), response.body().get("nome").toString(), response.body().get("cognome").toString(), "",response.body().get("email").toString(),"" );
 
-
+                currentUser = null;
 
                 txtUserName.setText(currentUser.getUsername());
                 txtName.setText(currentUser.getNome());

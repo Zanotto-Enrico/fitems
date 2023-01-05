@@ -3,11 +3,14 @@ package com.example.fitems;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.app.AlertDialog;
+import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
@@ -19,6 +22,8 @@ import com.example.fitems.Classes.User;
 import com.google.gson.JsonObject;
 
 import java.io.IOException;
+import java.util.Calendar;
+import java.util.Date;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -27,8 +32,9 @@ import retrofit2.Response;
 public class RegistrationPage extends AppCompatActivity {
 
     private EditText txtUsername, txtNome, txtCognome, txtPassword1, txtPassword2, txtIndirizzo, txtEmail;
-    private Button btnRegistrati;
+    private Button btnRegistrati, btnDatePicker;
     private ImageButton btnIndex;
+    private DatePickerDialog datePickerDialog;
 
 
 
@@ -54,7 +60,9 @@ public class RegistrationPage extends AppCompatActivity {
         this.txtEmail = findViewById(R.id.txtEmail_registration);
 
         this.btnRegistrati = findViewById(R.id.btnRegistrati_registration);
+        this.btnDatePicker = findViewById(R.id.btnDatePicker_registration);
         this.btnIndex = findViewById(R.id.btnIndex_registration);
+        initDatePicker();
     }
 
 
@@ -70,6 +78,7 @@ public class RegistrationPage extends AppCompatActivity {
                     !txtEmail.getText().toString().equals("") &&
                     !txtPassword1.getText().toString().equals("") &&
                     !txtPassword2.getText().toString().equals("") &&
+                    !btnDatePicker.getText().toString().equals("") &&
                     txtPassword1.getText().toString().equals(txtPassword2.getText().toString())
                 ) {
                     User user = new User(txtUsername.getText().toString(),
@@ -77,7 +86,9 @@ public class RegistrationPage extends AppCompatActivity {
                             txtCognome.getText().toString(),
                             txtPassword1.getText().toString(),
                             txtEmail.getText().toString(),
-                            txtIndirizzo.getText().toString());
+                            txtIndirizzo.getText().toString(),
+                            formatDate((String) btnDatePicker.getText()),
+                            0);
 
                     try {
                         registerUser(user, view);
@@ -97,13 +108,47 @@ public class RegistrationPage extends AppCompatActivity {
                 finish();
             }
         });
+
+
+        this.btnDatePicker.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                datePickerDialog.show();
+            }
+        });
+    }
+
+    private String formatDate(String d) {
+        String[] info = d.split("/");
+
+        if (info.length == 3) {
+            return info[2] + "-" + info[1] + "-" + info[0];
+        }
+        return "";
+    }
+
+    private void initDatePicker() {
+        DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
+            @Override
+            public void onDateSet(DatePicker datePicker, int y, int m, int d) {
+                String data = d + "/" + (m + 1) + "/" + y;
+                btnDatePicker.setText(data);
+            }
+        };
+
+        Calendar cal = Calendar.getInstance();
+        int year = cal.get(Calendar.YEAR);
+        int month = cal.get(Calendar.MONTH);
+        int day = cal.get(Calendar.DAY_OF_MONTH);
+
+        datePickerDialog = new DatePickerDialog(this, AlertDialog.BUTTON_POSITIVE, dateSetListener, year, month, day);
     }
 
     private void registerUser(User u, View v) throws IOException {
         ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
         Pair<Double, Double> c = LatLonGenerator.getCoordinatesFromAddress(u.getIndirizzo(), this);
 
-        Call<JsonObject> call = apiInterface.register(u.getUsername(), u.getNome(), u.getCognome(), u.getEmail(), u.getPassword(), c.first, c.second);
+        Call<JsonObject> call = apiInterface.register(u.getUsername(), u.getNome(), u.getCognome(), u.getEmail(), u.getDataNascita(), u.getPassword(), c.first, c.second);
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {

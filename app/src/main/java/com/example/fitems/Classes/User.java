@@ -1,17 +1,22 @@
 package com.example.fitems.Classes;
 
+import java.util.Date;
 import java.util.Objects;
 
 public class User {
     private String username, nome, cognome, password, email, indirizzo;
+    private String dataNascita;
+    private int points;
 
-    public User(String username, String nome, String cognome, String password, String email, String indirizzo) {
+    public User(String username, String nome, String cognome, String password, String email, String indirizzo, String dataNascita, int points) {
         this.username = username;
         this.nome = nome;
         this.cognome = cognome;
         this.password = password;
         this.email = email;
         this.indirizzo = indirizzo;
+        this.dataNascita = dataNascita;
+        this.points = points;
     }
 
     public String getUsername() {
@@ -62,6 +67,22 @@ public class User {
         this.indirizzo = indirizzo;
     }
 
+    public String getDataNascita() {
+        return this.dataNascita;
+    }
+
+    public void setDataNascita(String dataNascita) {
+        this.dataNascita = dataNascita;
+    }
+
+    public int getPoints() {
+        return this.points;
+    }
+
+    public void setPoints(int points) {
+        this.points = points;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -78,12 +99,14 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "username='"    + this.username + '\'' +
-                ", nome='"      + this.nome + '\'' +
-                ", cognome='"   + this.cognome + '\'' +
-                ", password='"  + this.password + '\'' +
-                ", email='"     + this.email + '\'' +
-                ", indirizzo='" + this.indirizzo + '\'' +
+                "username='" + username + '\'' +
+                ", nome='" + nome + '\'' +
+                ", cognome='" + cognome + '\'' +
+                ", password='" + password + '\'' +
+                ", email='" + email + '\'' +
+                ", indirizzo='" + indirizzo + '\'' +
+                ", dataNascita=" + dataNascita +
+                ", points=" + points +
                 '}';
     }
 }

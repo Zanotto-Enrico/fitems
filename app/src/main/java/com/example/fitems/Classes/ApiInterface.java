@@ -25,6 +25,7 @@ public interface ApiInterface {
                               @Field("nome") String nome,
                               @Field("cognome") String cognome,
                               @Field("email") String email,
+                              @Field("data") String data,
                               @Field("password") String password,
                               @Field("latitudine") Double latitudine,
                               @Field("longitudine") Double longitudine);
