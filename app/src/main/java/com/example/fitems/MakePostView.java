@@ -123,8 +123,12 @@ public class MakePostView extends AppCompatActivity {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 
-                if(response.body().get("status").toString().substring(0,8).equals("\"SUCCESS")) {
+                if(file == null)
+                {
                     Toast.makeText(MakePostView.this, "Il post è stato pubblicato!", Toast.LENGTH_LONG).show();
+                    finish();
+                }
+                else if(response.body().get("status").toString().substring(0,8).equals("\"SUCCESS")) {
                     String id_post = response.body().get("status").toString().split(":")[1].replace("\"","");
 
                     RequestBody requestFile =
@@ -145,8 +149,7 @@ public class MakePostView extends AppCompatActivity {
                         @Override
                         public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                             if(response.body().get("status").toString().equals("\"SUCCESS\"")) {
-                                Toast.makeText(MakePostView.this, "La foto è stata caricata!", Toast.LENGTH_LONG).show();
-//
+                                Toast.makeText(MakePostView.this, "Il post con foto è stato caricato!", Toast.LENGTH_LONG).show();
                                finish();
                             }
                         }
