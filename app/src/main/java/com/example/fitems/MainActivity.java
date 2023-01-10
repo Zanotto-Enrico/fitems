@@ -55,6 +55,21 @@ public class MainActivity extends AppCompatActivity {
 
         connectWithGraphic();
         addListenerToWidgets();
+
+        setBonusPoints();
+    }
+
+    private void setBonusPoints() {
+        if (User.loggedUser == null) {
+            try {
+                User.lock.wait();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Do here...
+        Toast.makeText(getApplicationContext(), User.loggedUser.toString(), Toast.LENGTH_LONG).show();
     }
 
 

@@ -25,6 +25,7 @@ public class User {
     private String dataNascita;
     private int points;
     public static User loggedUser;
+    public static final Object lock = new Object();
 
     public User(String username, String nome, String cognome, String password, String email, String indirizzo, String dataNascita, int points) {
         this.username = username;
@@ -46,25 +47,31 @@ public class User {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                User.loggedUser = new User();
-                Double lat, lon;
-                lat = Double.valueOf(response.body().get("latitudine").getAsString());
-                lon = Double.valueOf(response.body().get("longitudine").getAsString());
+                synchronized (lock) {
+                    loggedUser = new User();
+                    double lat, lon;
+                    lat = Double.parseDouble(response.body().get("latitudine").getAsString());
+                    lon = Double.parseDouble(response.body().get("longitudine").getAsString());
 
-                User.loggedUser.setUsername(response.body().get("username").getAsString());
-                User.loggedUser.setPassword("IMPOSSIBLE TO KNOW HERE");
-                User.loggedUser.setEmail(response.body().get("email").getAsString());
-                User.loggedUser.setCognome(response.body().get("cognome").getAsString());
-                User.loggedUser.setDataNascita(response.body().get("nascita").getAsString());
+                    User.loggedUser.setUsername(response.body().get("username").getAsString());
+                    User.loggedUser.setPassword("IMPOSSIBLE TO KNOW HERE");
+                    User.loggedUser.setEmail(response.body().get("email").getAsString());
+                    User.loggedUser.setNome(response.body().get("nome").getAsString());
+                    User.loggedUser.setCognome(response.body().get("cognome").getAsString());
+                    User.loggedUser.setDataNascita(response.body().get("nascita").getAsString());
 
-                try {
-                    User.loggedUser.setIndirizzo(LatLonGenerator.getAddressFromCoordinates(lat, lon, c));
-                } catch (IOException e) { e.printStackTrace(); }
+                    try {
+                        User.loggedUser.setIndirizzo(LatLonGenerator.getAddressFromCoordinates(lat, lon, c));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
-                if (response.body().has("punteggio"))
-                    User.loggedUser.setPoints(Integer.valueOf(response.body().get("punteggio").getAsString()));
-                else
-                    User.loggedUser.setPoints(-1);
+                    if (response.body().has("punteggio"))
+                        User.loggedUser.setPoints(Integer.valueOf(response.body().get("punteggio").getAsString()));
+                    else
+                        User.loggedUser.setPoints(-1);
+                    lock.notifyAll();
+                }
             }
 
             @Override
