@@ -6,7 +6,9 @@ import android.location.Geocoder;
 import android.util.Pair;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class LatLonGenerator {
 
@@ -36,9 +38,10 @@ public class LatLonGenerator {
      * @throws IOException in caso di fallimento del metodo di localizzazione
      */
     public static String getAddressFromCoordinates(double latitudine, double longitudine, Context c) throws IOException {
-        Geocoder geocoder = new Geocoder(c);
-        List<Address> addresses = geocoder.getFromLocation(latitudine, longitudine, 1);
+        Geocoder geocoder = new Geocoder(c, Locale.getDefault());
+        List<Address> addresses = new ArrayList<>();
+        addresses = geocoder.getFromLocation(latitudine, longitudine, 1);
 
-        return addresses.get(0).getAddressLine(0).toString();
+        return (!addresses.isEmpty()) ? addresses.get(0).getAddressLine(0).toString() : "";
     }
 }

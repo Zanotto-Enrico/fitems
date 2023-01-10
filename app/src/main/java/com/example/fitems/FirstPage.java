@@ -4,6 +4,7 @@ import com.example.fitems.Classes.ApiInterface;
 import com.example.fitems.Classes.CheckRecentlyLoggedUser;
 import com.example.fitems.Classes.MyDate;
 import com.example.fitems.Classes.RetrofitClient;
+import com.example.fitems.Classes.User;
 import com.google.gson.JsonObject;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,6 +54,7 @@ public class FirstPage extends AppCompatActivity {
                     Toast.makeText(FirstPage.this, "Status: " + response.body().get("status"), Toast.LENGTH_LONG).show();
 
                     if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
+                        User.initializeLoggedUser(getApplicationContext());
                         startActivity(new Intent(c, MainActivity.class));
                         finish();
                     }

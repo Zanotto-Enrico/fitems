@@ -81,6 +81,8 @@ public class LoginPage extends AppCompatActivity {
                         if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
                             checkRecLogUsr.logIn(usrInserito, pwdInserta, MyDate.getToday(), true);
 
+                            User.initializeLoggedUser(getApplicationContext());
+
                             Intent i = new Intent(view.getContext(), MainActivity.class);
                             view.getContext().startActivity(i);
                         }

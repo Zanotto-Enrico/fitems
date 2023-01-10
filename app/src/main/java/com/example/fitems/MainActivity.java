@@ -19,6 +19,7 @@ import com.example.fitems.Classes.CustomListAdapter_Home;
 import com.example.fitems.Classes.LatLonGenerator;
 import com.example.fitems.Classes.Post;
 import com.example.fitems.Classes.RetrofitClient;
+import com.example.fitems.Classes.User;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
