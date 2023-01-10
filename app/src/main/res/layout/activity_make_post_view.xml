@@ -59,6 +59,7 @@
                     android:id="@+id/textView3"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_margin="10sp"
                     android:layout_weight="1"
                     android:width="100sp"
                     android:text="Aggiungi una foto"
@@ -69,9 +70,10 @@
 
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/ed_user_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher_foreground"
+                android:layout_width="100sp"
+                android:layout_height="100sp"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_gallery"
                 app:civ_border_color="@color/primaryDark"
                 app:civ_border_width="2sp"
                 app:civ_circle_background_color="@color/white"

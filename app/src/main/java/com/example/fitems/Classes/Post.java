@@ -3,7 +3,7 @@ package com.example.fitems.Classes;
 import java.util.Objects;
 
 public class Post {
-    private String titolo, descrizione, data, username;
+    private String titolo, descrizione, data, username, id_post;
     private int stato;
 
     public Post(String titolo, String descrizione) {
@@ -12,13 +12,17 @@ public class Post {
         this.stato = 0;
     }
 
-    public Post(String titolo, String descrizione, int stato, String data, String username ) {
+    public Post(String titolo, String descrizione, int stato, String data, String username, String id_post ) {
         this.titolo = titolo;
         this.descrizione = descrizione;
         this.stato = stato;
         this.data = data;
         this.username = username;
+        this.id_post = id_post;
     }
+    public String getId_post() {return this.id_post;}
+
+    public void setId_post(String id_post) {this.id_post = id_post;}
 
     public String getTitolo() {
         return this.titolo;

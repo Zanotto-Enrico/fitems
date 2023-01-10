@@ -4,15 +4,18 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fitems.Classes.ApiInterface;
 import com.example.fitems.Classes.RetrofitClient;
-import com.google.gson.JsonObject;
 
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,7 +23,9 @@ import retrofit2.Response;
 public class PostView extends AppCompatActivity {
 
     private TextView txtUsername, txtStato, txtData, txtDescrizione, txtTitolo;
+    private ImageView postImg;
     private ImageButton btnBack;
+    private String post_id;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +46,7 @@ public class PostView extends AppCompatActivity {
         this.txtData = findViewById(R.id.txtDate);
         this.btnBack = findViewById(R.id.btnBack_PostView);
         this.txtTitolo = findViewById(R.id.txtTitolo_PostView);
+        this.postImg = findViewById(R.id.ed_user_image);
     }
 
     private void setGraphics(){
@@ -51,6 +57,8 @@ public class PostView extends AppCompatActivity {
         this.txtData.setText(bundle.getString("data"));
         this.txtDescrizione.setText(bundle.getString("descrizione"));
         this.txtTitolo.setText(bundle.getString("titolo"));
+        post_id = bundle.getString("id");
+        loadPostImage();
     }
 
     private void setListeners(){
@@ -62,5 +70,34 @@ public class PostView extends AppCompatActivity {
                 finish();
             }
         });
+    }
+
+    private void loadPostImage() {
+
+        ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
+        Call<ResponseBody> call = apiInterface.getImage(post_id);
+        call.enqueue(new Callback<okhttp3.ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+
+                if (response.isSuccessful()) {
+                    if (response.body() != null && response.body().contentLength() != 27) {
+                        // display the image data in a ImageView or save it
+                        Bitmap bmp = BitmapFactory.decodeStream(response.body().byteStream());
+                        postImg.setImageBitmap(bmp);
+                    } else {
+                        // TODO
+                    }
+                } else {
+                    // TODO
+                }
+            }
+
+            @Override
+            public void onFailure(Call<ResponseBody> call, Throwable t) {
+
+            }
+        });
+
     }
 }

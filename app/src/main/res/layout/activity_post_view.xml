@@ -178,10 +178,10 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:padding="5sp"
+            android:text="Informazioni:"
             android:textColor="@color/white"
-            android:textSize="15sp"
-            android:text="Stato:"
-            android:padding="5sp" />
+            android:textSize="15sp" />
 
     </LinearLayout>
 
