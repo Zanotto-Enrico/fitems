@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitems.Classes.ApiInterface;
@@ -40,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnAccount;
     private ImageButton btnNewPost;
     private ListView listViewPost;
+    private TextView txtBonusPoints;
 
     private List<Post> posts;
 
@@ -69,7 +71,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         // Do here...
-        Toast.makeText(getApplicationContext(), User.loggedUser.toString(), Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), User.loggedUser.toString(), Toast.LENGTH_LONG).show();
+        if (User.loggedUser != null) {
+            if (User.loggedUser.getPoints() != -1) this.txtBonusPoints.setText(User.loggedUser.getPoints());
+        } else
+            this.txtBonusPoints.setVisibility(View.INVISIBLE);
     }
 
 
@@ -77,6 +83,7 @@ public class MainActivity extends AppCompatActivity {
         this.btnAccount = findViewById(R.id.btnAccount_homepage);
         this.listViewPost = findViewById(R.id.listPosts_home);
         this.btnNewPost = findViewById(R.id.btnAddPost);
+        this.txtBonusPoints = findViewById(R.id.txtBonusPoints);
     }
 
 
