@@ -7,6 +7,8 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
 import android.util.Pair;
 import android.view.View;
 import android.widget.AdapterView;
@@ -62,18 +64,23 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setBonusPoints() {
-        if (User.loggedUser == null) {
+        /* TODO: Sistemare monitor */
+        /*if (User.loggedUser == null) {
             try {
                 User.lock.wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }
+        }*/
 
-        // Do here...
-        //Toast.makeText(getApplicationContext(), User.loggedUser.toString(), Toast.LENGTH_LONG).show();
-        if (User.loggedUser != null) {
-            if (User.loggedUser.getPoints() != -1) this.txtBonusPoints.setText(User.loggedUser.getPoints());
+        SpannableStringBuilder ssb = new SpannableStringBuilder();
+        ssb.append(" ");
+        ssb.setSpan(new ImageSpan(this, R.drawable.ic_baseline_bonus_points_24), ssb.length() - 1, ssb.length(), 0);
+        ssb.append(" ");
+
+        if (User.loggedUser != null && User.loggedUser.getPoints() != -1) {
+            ssb.append(String.valueOf(User.loggedUser.getPoints()));
+            this.txtBonusPoints.setText(ssb);
         } else
             this.txtBonusPoints.setVisibility(View.INVISIBLE);
     }
