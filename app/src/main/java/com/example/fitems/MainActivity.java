@@ -41,7 +41,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btnAccount;
-    private ImageButton btnNewPost, btnGuide;
+    private ImageButton btnNewPost, btnGuide, btnChat;
     private ListView listViewPost;
     private TextView txtBonusPoints;
     private List<Post> posts;
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
         this.btnNewPost = findViewById(R.id.btnAddPost);
         this.txtBonusPoints = findViewById(R.id.txtBonusPoints);
         this.btnGuide = findViewById(R.id.btnGuide);
-
+        this.btnChat = findViewById(R.id.btnChat);
     }
 
 
@@ -99,6 +99,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), MakePostView.class);
+                view.getContext().startActivity(i);
+            }
+        });
+
+        this.btnChat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), Activity_chat_list.class);
                 view.getContext().startActivity(i);
             }
         });
