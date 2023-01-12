@@ -1,15 +1,11 @@
 package com.example.fitems.Classes;
 
-import android.content.Context;
 import android.content.SharedPreferences;
-import android.provider.ContactsContract;
 import android.util.Pair;
 
-import java.util.Date;
-
 public class CheckRecentlyLoggedUser {
-    private SharedPreferences sp;
-    private SharedPreferences.Editor editor;
+    private final SharedPreferences sp;
+    private final SharedPreferences.Editor editor;
     private final int VALID_DAYS = 14;
 
     public CheckRecentlyLoggedUser(SharedPreferences sp) {
@@ -27,11 +23,11 @@ public class CheckRecentlyLoggedUser {
         return false;
     }
 
-    public void logIn(String user, String password, MyDate day, boolean isLogged) {
+    public void logIn(String user, String password, MyDate day) {
         editor.putString("username", user);
         editor.putString("password", password);
         editor.putLong("loginDay", day.getDateIdentificator());
-        editor.putBoolean("isLogged", isLogged);
+        editor.putBoolean("isLogged", true);
         editor.apply();
     }
 

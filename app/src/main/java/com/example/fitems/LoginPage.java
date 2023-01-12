@@ -79,12 +79,10 @@ public class LoginPage extends AppCompatActivity {
                         Toast.makeText(LoginPage.this, "Status: " + response.body().get("status"), Toast.LENGTH_LONG).show();
 
                         if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
-                            checkRecLogUsr.logIn(usrInserito, pwdInserta, MyDate.getToday(), true);
+                            checkRecLogUsr.logIn(usrInserito, pwdInserta, MyDate.getToday());
 
-                            User.initializeLoggedUser(getApplicationContext());
-
-                            Intent i = new Intent(view.getContext(), MainActivity.class);
-                            view.getContext().startActivity(i);
+                            User.initializeLoggedUser(getApplicationContext(), view);
+                            finish();
                         }
                     }
 
