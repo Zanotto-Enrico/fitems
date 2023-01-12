@@ -39,9 +39,9 @@ public interface ApiInterface {
                               @Field("longitudine") Double longitudine);
 
     @GET("/post")
-    Call<JsonObject> post(@Field("limite") Integer limite,
-                          @Field("latitudine") Double latitudine,
-                          @Field("longitudine") Double longitudine);
+    Call<JsonObject> post(@Query("limite") Integer limite,
+                          @Query("latitudine") Double latitudine,
+                          @Query("longitudine") Double longitudine);
 
     @GET("/post")
     Call<JsonObject> post();
@@ -60,8 +60,8 @@ public interface ApiInterface {
     Call<JsonObject> myChats();
 
     @GET("/chat")
-    Call<JsonObject> chat(@Field("utente") String utente,
-                          @Field("limite") Integer limite);
+    Call<JsonObject> chat(@Query("utente") String utente,
+                          @Query("limite") Integer limite);
 
     @GET("/visualizza")
     Call<JsonObject> visualizza(@Field("mittente") String mittente);
