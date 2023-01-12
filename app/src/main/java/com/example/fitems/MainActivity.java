@@ -64,15 +64,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setBonusPoints() {
-        /* TODO: Sistemare monitor */
-        /*if (User.loggedUser == null) {
-            try {
-                User.lock.wait();
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }*/
-
         SpannableStringBuilder ssb = new SpannableStringBuilder();
         ssb.append(" ");
         ssb.setSpan(new ImageSpan(this, R.drawable.ic_baseline_bonus_points_24), ssb.length() - 1, ssb.length(), 0);

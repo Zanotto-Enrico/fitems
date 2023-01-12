@@ -1,6 +1,10 @@
 package com.example.fitems.Classes;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
+import android.content.Intent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.fitems.MainActivity;
@@ -40,7 +44,7 @@ public class User {
 
     private User() { }
 
-    public static void initializeLoggedUser(Context c) {
+    public static void initializeLoggedUser(Context c, View view) {
         ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
 
         Call<JsonObject> call = apiInterface.getMyInfo();
@@ -70,7 +74,11 @@ public class User {
                         User.loggedUser.setPoints(Integer.valueOf(response.body().get("punteggio").getAsString()));
                     else
                         User.loggedUser.setPoints(-1);
-                    lock.notifyAll();
+
+                    Intent i = new Intent(view.getContext(), MainActivity.class);
+                    // sto cercando di avviare una activity da un punto esterno a quello del contesto corrente
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    view.getContext().startActivity(i);
                 }
             }
 

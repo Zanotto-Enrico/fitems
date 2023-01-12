@@ -54,8 +54,7 @@ public class FirstPage extends AppCompatActivity {
                     Toast.makeText(FirstPage.this, "Status: " + response.body().get("status"), Toast.LENGTH_LONG).show();
 
                     if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
-                        User.initializeLoggedUser(getApplicationContext());
-                        startActivity(new Intent(c, MainActivity.class));
+                        User.initializeLoggedUser(getApplicationContext(), new View(getApplicationContext()));
                         finish();
                     }
                 }
