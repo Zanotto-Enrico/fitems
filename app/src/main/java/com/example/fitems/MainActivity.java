@@ -38,9 +38,8 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btnAccount;
-    private ImageButton btnNewPost;
+    private ImageButton btnNewPost, btnGuide;
     private ListView listViewPost;
-
     private List<Post> posts;
 
     @Override
@@ -62,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         this.btnAccount = findViewById(R.id.btnAccount_homepage);
         this.listViewPost = findViewById(R.id.listPosts_home);
         this.btnNewPost = findViewById(R.id.btnAddPost);
+        this.btnGuide = findViewById(R.id.btnGuide);
     }
 
 
@@ -97,6 +97,14 @@ public class MainActivity extends AppCompatActivity {
                 intent.putExtra("titolo", posts.get(i).getTitolo());
                 intent.putExtra("id", posts.get(i).getId_post());
                 view.getContext().startActivity(intent);
+            }
+        });
+
+        this.btnGuide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), Guide.class);
+                startActivity(i);
             }
         });
     }
