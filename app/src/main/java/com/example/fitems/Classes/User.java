@@ -1,6 +1,10 @@
 package com.example.fitems.Classes;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
+import android.content.Intent;
+import android.view.View;
 import android.widget.Toast;
 
 import com.example.fitems.MainActivity;
@@ -25,6 +29,7 @@ public class User {
     private String dataNascita;
     private int points;
     public static User loggedUser;
+    public static final Object lock = new Object();
 
     public User(String username, String nome, String cognome, String password, String email, String indirizzo, String dataNascita, int points) {
         this.username = username;
@@ -39,32 +44,42 @@ public class User {
 
     private User() { }
 
-    public static void initializeLoggedUser(Context c) {
+    public static void initializeLoggedUser(Context c, View view) {
         ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
 
         Call<JsonObject> call = apiInterface.getMyInfo();
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                User.loggedUser = new User();
-                Double lat, lon;
-                lat = Double.valueOf(response.body().get("latitudine").getAsString());
-                lon = Double.valueOf(response.body().get("longitudine").getAsString());
+                synchronized (lock) {
+                    loggedUser = new User();
+                    double lat, lon;
+                    lat = Double.parseDouble(response.body().get("latitudine").getAsString());
+                    lon = Double.parseDouble(response.body().get("longitudine").getAsString());
 
-                User.loggedUser.setUsername(response.body().get("username").getAsString());
-                User.loggedUser.setPassword("IMPOSSIBLE TO KNOW HERE");
-                User.loggedUser.setEmail(response.body().get("email").getAsString());
-                User.loggedUser.setCognome(response.body().get("cognome").getAsString());
-                User.loggedUser.setDataNascita(response.body().get("nascita").getAsString());
+                    User.loggedUser.setUsername(response.body().get("username").getAsString());
+                    User.loggedUser.setPassword("IMPOSSIBLE TO KNOW HERE");
+                    User.loggedUser.setEmail(response.body().get("email").getAsString());
+                    User.loggedUser.setNome(response.body().get("nome").getAsString());
+                    User.loggedUser.setCognome(response.body().get("cognome").getAsString());
+                    User.loggedUser.setDataNascita(response.body().get("nascita").getAsString());
 
-                try {
-                    User.loggedUser.setIndirizzo(LatLonGenerator.getAddressFromCoordinates(lat, lon, c));
-                } catch (IOException e) { e.printStackTrace(); }
+                    try {
+                        User.loggedUser.setIndirizzo(LatLonGenerator.getAddressFromCoordinates(lat, lon, c));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
-                if (response.body().has("punteggio"))
-                    User.loggedUser.setPoints(Integer.valueOf(response.body().get("punteggio").getAsString()));
-                else
-                    User.loggedUser.setPoints(-1);
+                    if (response.body().has("punteggio"))
+                        User.loggedUser.setPoints(Integer.valueOf(response.body().get("punteggio").getAsString()));
+                    else
+                        User.loggedUser.setPoints(-1);
+
+                    Intent i = new Intent(view.getContext(), MainActivity.class);
+                    // sto cercando di avviare una activity da un punto esterno a quello del contesto corrente
+                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    view.getContext().startActivity(i);
+                }
             }
 
             @Override

@@ -7,11 +7,14 @@ import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
 import android.util.Pair;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitems.Classes.ApiInterface;
@@ -40,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnAccount;
     private ImageButton btnNewPost, btnGuide;
     private ListView listViewPost;
+    private TextView txtBonusPoints;
     private List<Post> posts;
 
     @Override
@@ -54,6 +58,21 @@ public class MainActivity extends AppCompatActivity {
 
         connectWithGraphic();
         addListenerToWidgets();
+
+        setBonusPoints();
+    }
+
+    private void setBonusPoints() {
+        SpannableStringBuilder ssb = new SpannableStringBuilder();
+        ssb.append(" ");
+        ssb.setSpan(new ImageSpan(this, R.drawable.ic_baseline_bonus_points_24), ssb.length() - 1, ssb.length(), 0);
+        ssb.append(" ");
+
+        if (User.loggedUser != null && User.loggedUser.getPoints() != -1) {
+            ssb.append(String.valueOf(User.loggedUser.getPoints()));
+            this.txtBonusPoints.setText(ssb);
+        } else
+            this.txtBonusPoints.setVisibility(View.INVISIBLE);
     }
 
 
@@ -61,7 +80,9 @@ public class MainActivity extends AppCompatActivity {
         this.btnAccount = findViewById(R.id.btnAccount_homepage);
         this.listViewPost = findViewById(R.id.listPosts_home);
         this.btnNewPost = findViewById(R.id.btnAddPost);
+        this.txtBonusPoints = findViewById(R.id.txtBonusPoints);
         this.btnGuide = findViewById(R.id.btnGuide);
+
     }
 
 
@@ -137,4 +158,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() { }
 }
