@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryDark"
+    tools:context=".ManagePost">
+
+    <TextView
+        android:id="@+id/txtNomePost_ManagePost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Nome post"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.381"
+        app:layout_constraintStart_toEndOf="@+id/btnBack_ManagePost"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/btnBack_ManagePost"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+
+    <Button
+        android:id="@+id/btnConfermaRitrovamento_ManagePost"
+        android:layout_width="378dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="52dp"
+        android:backgroundTint="@color/primaryLight"
+        android:text="Ho ritrovato il mio oggetto da solo"
+        android:textColor="@color/accent"
+        android:textSize="14sp"
+        app:cornerRadius="@dimen/btnCornerRadius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.484"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomePost_ManagePost" />
+
+    <Button
+        android:id="@+id/btnConfermaRestituzione_ManagePost"
+        android:layout_width="378dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="28dp"
+        android:backgroundTint="@color/primaryLight"
+        android:text="Conferma restituzione oggetto"
+        android:textColor="@color/accent"
+        android:textSize="14sp"
+        app:cornerRadius="@dimen/btnCornerRadius"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.515"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnConfermaRitrovamento_ManagePost" />
+</androidx.constraintlayout.widget.ConstraintLayout>

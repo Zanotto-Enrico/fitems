@@ -33,7 +33,7 @@
         app:layout_constraintTop_toBottomOf="@+id/btnBack_MyPosts" />
 
     <ListView
-        android:id="@+id/listPosts_home"
+        android:id="@+id/listPosts_MyPosts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10sp"
@@ -41,6 +41,19 @@
         android:layout_marginRight="10sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/guide2" />
+
+    <TextView
+        android:id="@+id/txtNoPosts_MyPosts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:text="Non hai ancora creato nessun post.\nAppena ne creerai uno verrà visualizzato qui!"
+        android:textAlignment="center"
+        android:textColor="@color/primaryLight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/guide2" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -3,10 +3,13 @@ package com.example.fitems;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitems.Classes.ApiInterface;
@@ -30,8 +33,9 @@ import retrofit2.Response;
 public class MyPosts extends AppCompatActivity {
     private ImageButton btnBack;
     private ListView listViewMyPosts;
+    private TextView txtNoPosts;
 
-    private List<Post> posts;
+    private ArrayList<Post> posts;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,13 +47,17 @@ public class MyPosts extends AppCompatActivity {
         this.posts = new ArrayList<>();
         connectWithGraphic();
         addListenerToWidgets();
+
+        this.txtNoPosts.setVisibility(View.INVISIBLE);
+
         downloadMyPosts();
     }
 
     //Binding degli elementi grafici
     private void connectWithGraphic() {
-        this.listViewMyPosts = findViewById(R.id.listPosts_home);
+        this.listViewMyPosts = findViewById(R.id.listPosts_MyPosts);
         this.btnBack = findViewById(R.id.btnBack_MyPosts);
+        this.txtNoPosts = findViewById(R.id.txtNoPosts_MyPosts);
     }
 
     // Inizializzazione dei listener per i due bottomi presenti nella schermata
@@ -58,6 +66,18 @@ public class MyPosts extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        this.listViewMyPosts.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int _i_, long l) {
+                Intent i = new Intent(MyPosts.this, ManagePost.class);
+                // sto cercando di avviare una activity da un punto esterno a quello del contesto corrente
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                i.putExtra("nome_oggetto", posts.get(_i_).getTitolo());
+                i.putExtra("id_oggetto", posts.get(_i_).getId_post());
+                view.getContext().startActivity(i);
             }
         });
     }
@@ -81,6 +101,8 @@ public class MyPosts extends AppCompatActivity {
                     }
                     CustomListAdapter_Home adapter = new CustomListAdapter_Home(getApplicationContext(), post);
                     listViewMyPosts.setAdapter(adapter);
+                    if (posts.size() == 0)
+                        txtNoPosts.setVisibility(View.VISIBLE);
                 }
             }
 
