@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,7 +28,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class MyPosts extends AppCompatActivity {
-
+    private ImageButton btnBack;
     private ListView listViewMyPosts;
 
     private List<Post> posts;
@@ -40,10 +42,24 @@ public class MyPosts extends AppCompatActivity {
 
         this.posts = new ArrayList<>();
         connectWithGraphic();
+        addListenerToWidgets();
+        downloadMyPosts();
     }
 
+    //Binding degli elementi grafici
     private void connectWithGraphic() {
         this.listViewMyPosts = findViewById(R.id.listPosts_home);
+        this.btnBack = findViewById(R.id.btnBack_MyPosts);
+    }
+
+    // Inizializzazione dei listener per i due bottomi presenti nella schermata
+    private void addListenerToWidgets() {
+        this.btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     private void downloadMyPosts() {

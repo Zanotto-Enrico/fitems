@@ -11,6 +11,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -37,6 +38,7 @@ public class UserArea extends AppCompatActivity {
 
     private TextView txtName, txtLastName, txtEmail, txtLocation, txtPost, txtUserName;
     private ImageButton btnBack, btnEdit, btnLogOut;
+    private Button btnMyPosts;
     static User currentUser;
 
     private CheckRecentlyLoggedUser checkRecLogUsr;
@@ -69,11 +71,20 @@ public class UserArea extends AppCompatActivity {
         this.btnLogOut = findViewById(R.id.btnLogOut_UserArea);
         this.btnBack = findViewById(R.id.btnBack);
         this.btnEdit = findViewById(R.id.btnEdit);
+        this.btnMyPosts = findViewById(R.id.btnMyPosts_UserArea);
     }
 
 
     // Inizializzazione dei listener per i due bottomi presenti nella schermata
-    private void addListenerToWidgets(){
+    private void addListenerToWidgets() {
+
+        this.btnMyPosts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(UserArea.this, MyPosts.class);
+                view.getContext().startActivity(i);
+            }
+        });
 
         this.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
