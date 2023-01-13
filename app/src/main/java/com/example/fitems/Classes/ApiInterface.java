@@ -46,6 +46,9 @@ public interface ApiInterface {
     @GET("/post")
     Call<JsonObject> post();
 
+    @POST("/myposts")
+    Call<JsonObject> myposts();
+
     @FormUrlEncoded
     @POST("/makepost")
     Call<JsonObject> makePost(@Field("titolo") String titolo,
