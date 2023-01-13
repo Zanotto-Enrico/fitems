@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.util.Pair;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import retrofit2.Call;
@@ -27,6 +28,7 @@ public class FirstPage extends AppCompatActivity {
 
     private Button btnAccedi;
     private Button btnRegistrati;
+    private ProgressBar spinner;
 
     private CheckRecentlyLoggedUser checkRecLogUsr;
 
@@ -37,11 +39,17 @@ public class FirstPage extends AppCompatActivity {
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         setContentView(R.layout.activity_first_page);
 
-        Context c = this;
+        connectWithGraphic();
+        addListenerToWidgets();
 
+        this.spinner.setVisibility(View.INVISIBLE);
         this.checkRecLogUsr = new CheckRecentlyLoggedUser(this.getSharedPreferences("fitems", Context.MODE_PRIVATE));
 
         if (checkRecLogUsr.isLoginValid()) {
+            this.spinner.setVisibility(View.VISIBLE);
+            this.btnAccedi.setVisibility(View.INVISIBLE);
+            this.btnRegistrati.setVisibility(View.INVISIBLE);
+
             Pair<String,String> infos = this.checkRecLogUsr.getInfoUserLogged();
 
             ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
@@ -55,7 +63,7 @@ public class FirstPage extends AppCompatActivity {
 
                     if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
                         User.initializeLoggedUser(getApplicationContext(), new View(getApplicationContext()));
-                        finish();
+                        //finish();
                     }
                 }
 
@@ -65,14 +73,12 @@ public class FirstPage extends AppCompatActivity {
                 }
             });
         }
-
-        connectWithGraphic();
-        addListenerToWidgets();
     }
 
     private void connectWithGraphic() {
         this.btnRegistrati = findViewById(R.id.button2);
         this.btnAccedi = findViewById(R.id.button);
+        this.spinner = (ProgressBar)findViewById(R.id.loading);
     }
 
 
