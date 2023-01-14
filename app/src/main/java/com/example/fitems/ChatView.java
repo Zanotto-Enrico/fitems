@@ -3,14 +3,19 @@ package com.example.fitems;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitems.Classes.ApiInterface;
 import com.example.fitems.Classes.Chat;
+import com.example.fitems.Classes.CustomListAdapter_Chat;
 import com.example.fitems.Classes.CustomListAdapter_Home;
 import com.example.fitems.Classes.Messaggio;
 import com.example.fitems.Classes.Post;
@@ -24,6 +29,7 @@ import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.ListIterator;
 
 import retrofit2.Call;
@@ -32,10 +38,13 @@ import retrofit2.Response;
 
 public class ChatView extends AppCompatActivity {
 
-    ImageButton btnAccount;
-    TextView textViewChat;
-    TextView textTitle;
-    Chat chat;
+    private ImageButton btnAccount;
+    private ImageButton refresh;
+    private Button send;
+    private ListView listViewMessaggi;
+    private TextView textTitle;
+    private EditText txtMessaggio;
+    private Chat chat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,14 +58,58 @@ public class ChatView extends AppCompatActivity {
         chat = new Chat(bundle.getString("username"));
 
         connectWithGraphic();
+        addListenerToWidgets();
         setGraphics();
+
+    }
+
+    private void addListenerToWidgets()
+    {
+        btnAccount.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), UserArea.class);
+                view.getContext().startActivity(i);
+            }
+        });
+        refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateChat();
+            }
+        });
+
+        send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(txtMessaggio.getText().toString().equals("")) return;
+                ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
+                Call<JsonObject> call = apiInterface.sendMessage(chat.getUsername(), txtMessaggio.getText().toString());
+                txtMessaggio.setText("");
+                call.enqueue(new Callback<JsonObject>() {
+                    @Override
+                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                        updateChat();
+                    }
+
+                    @Override
+                    public void onFailure(Call<JsonObject> call, Throwable t) {
+                        Toast.makeText(ChatView.this, "[Home]" + t.getMessage(), Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+        });
 
     }
 
     private void connectWithGraphic() {
         this.btnAccount = findViewById(R.id.btnAccount_homepage3);
-        this.textViewChat = findViewById(R.id.textView5);
         this.textTitle = findViewById(R.id.titleTxt);
+        this.listViewMessaggi = findViewById(R.id.listViewMessaggi);
+        this.btnAccount = findViewById(R.id.btnAccount_homepage3);
+        this.send = findViewById(R.id.send);
+        this.refresh = findViewById(R.id.btnRefresh);
+        this.txtMessaggio = findViewById(R.id.txtMessaggio);
     }
 
     private void setGraphics(){
@@ -95,15 +148,11 @@ public class ChatView extends AppCompatActivity {
         });
     }
 
-    // DA SOSTITUIRE CON QUALCOSA DI PIU ELABORATO
     private void printChatOnTxtView()
     {
-        ListIterator<Messaggio> it = chat.getMessaggi().listIterator(chat.getMessaggi().size());
-        while (it.hasPrevious())
-        {
-            textViewChat.setText(textViewChat.getText()+it.previous().getContenuto()+"\n");
-        }
-
+        Collections.reverse(chat.getMessaggi());
+        CustomListAdapter_Chat adapter = new CustomListAdapter_Chat(getApplicationContext(), chat.getMessaggi());
+        listViewMessaggi.setAdapter(adapter);
     }
 
 }

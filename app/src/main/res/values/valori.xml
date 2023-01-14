@@ -2,6 +2,6 @@
 <resources>
 
     <item name="btnCornerRadius" type="dimen" >7sp</item>
-    <item name="textboxCornerRadius" type="dimen" >7sp</item>
+    <item name="textboxCornerRadius" type="dimen" >4sp</item>
 
 </resources>

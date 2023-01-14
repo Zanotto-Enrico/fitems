@@ -84,117 +84,226 @@
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
             android:layout_below="@id/upLinearLayout"
             android:layout_alignParentStart="true"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="25sp">
+            android:layout_marginTop="25sp"
+            android:orientation="vertical">
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputName"
-                android:layout_width="250sp"
-                android:layout_height="80sp"
-                android:textColorHint="@color/accent"
-                app:boxBackgroundColor="@color/primaryDark"
-                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
-                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
-                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
-                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
-                app:boxStrokeColor="@color/accent"
-                app:hintTextColor="@color/accent"
-                app:placeholderTextColor="@color/accent"
-                app:prefixTextColor="@color/accent"
-                android:layout_marginBottom="16sp">
 
-                <EditText
-                    android:id="@+id/edName"
-                    android:layout_width="match_parent"
-                    android:layout_height="60sp"
-                    android:inputType="textPersonName"
-                    android:hint="@string/nome"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="15sp"
+                android:text="Modifica profilo"
+                android:textColor="@color/white"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:text="Info generali"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="80sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:text="First name"
                     android:textAlignment="center"
-                    android:textColor="@color/accent" />
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
 
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputLastName"
-                android:layout_width="250sp"
-                android:layout_height="80sp"
-                android:textColorHint="@color/accent"
-                app:boxBackgroundColor="@color/primaryDark"
-                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
-                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
-                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
-                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
-                app:boxStrokeColor="@color/accent"
-                app:hintTextColor="@color/accent"
-                app:placeholderTextColor="@color/accent"
-                app:prefixTextColor="@color/accent"
-                android:layout_marginBottom="16sp">
-
-                <EditText
-                    android:id="@+id/edLastName"
-                    android:layout_width="match_parent"
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="250sp"
                     android:layout_height="60sp"
-                    android:hint="@string/cognome"
-                    android:inputType="textPersonName"
-                    android:textColor="@color/accent"
-                    android:textAlignment="center"/>
+                    android:layout_weight="1"
+                    android:textColorHint="@color/accent"
+                    app:boxBackgroundColor="@color/primaryDark"
+                    app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                    app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                    app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                    app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                    app:boxStrokeColor="@color/accent"
+                    app:hintTextColor="@color/accent"
+                    app:placeholderTextColor="@color/accent"
+                    app:prefixTextColor="@color/accent">
 
-            </com.google.android.material.textfield.TextInputLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputEmail"
-                android:layout_width="350sp"
-                android:layout_height="80sp"
-                android:textColorHint="@color/accent"
-                app:boxBackgroundColor="@color/primaryDark"
-                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
-                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
-                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
-                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
-                app:boxStrokeColor="@color/accent"
-                app:hintTextColor="@color/accent"
-                app:placeholderTextColor="@color/accent"
-                app:prefixTextColor="@color/accent"
-                android:layout_marginBottom="16sp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50sp"
+                        android:inputType="textPersonName"
+                        android:textAlignment="gravity"
+                        android:textColorHint="@color/accent" />
 
-                <EditText
-                    android:id="@+id/edEmail"
-                    android:layout_width="match_parent"
-                    android:layout_height="61sp"
-                    android:hint="@string/email"
-                    android:textColor="@color/accent"
-                    android:textAlignment="center"/>
+                </com.google.android.material.textfield.TextInputLayout>
 
-            </com.google.android.material.textfield.TextInputLayout>
+            </LinearLayout>
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputLocation"
-                android:layout_width="300sp"
-                android:layout_height="80sp"
-                android:textColorHint="@color/accent"
-                app:boxBackgroundColor="@color/primaryDark"
-                app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
-                app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
-                app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
-                app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
-                app:boxStrokeColor="@color/accent"
-                app:hintTextColor="@color/accent"
-                app:placeholderTextColor="@color/accent"
-                app:prefixTextColor="@color/accent"
-                android:layout_marginBottom="16sp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
-                <EditText
-                    android:id="@+id/edLocation"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="80sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:text="Last name"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputLastName"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="250sp"
                     android:layout_height="60sp"
-                    android:hint="@string/indirizzo1"
-                    android:textColor="@color/accent"
-                    android:textAlignment="center"/>
+                    android:layout_weight="1"
+                    android:textColorHint="@color/accent"
+                    app:boxBackgroundColor="@color/primaryDark"
+                    app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                    app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                    app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                    app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                    app:boxStrokeColor="@color/accent"
+                    app:hintTextColor="@color/accent"
+                    app:placeholderTextColor="@color/accent"
+                    app:prefixTextColor="@color/accent">
 
-            </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edLastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="50sp"
+                        android:inputType="textPersonName"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/accent"
+                        android:textColorHint="@color/accent" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="80sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:text="Email"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputEmail"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="250sp"
+                    android:layout_height="60sp"
+                    android:layout_weight="1"
+                    android:textColorHint="@color/accent"
+                    app:boxBackgroundColor="@color/primaryDark"
+                    app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                    app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                    app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                    app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                    app:boxStrokeColor="@color/accent"
+                    app:hintTextColor="@color/accent"
+                    app:placeholderTextColor="@color/accent"
+                    app:prefixTextColor="@color/accent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edEmail"
+                        android:layout_width="match_parent"
+                        android:layout_height="50sp"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/accent"
+                        android:textColorHint="@color/accent" />
+
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:text="Quartiere"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="80sp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="10sp"
+                    android:layout_weight="1"
+                    android:text="Indirizzo"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="16sp" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/inputIndirizzo"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="250sp"
+                    android:layout_height="60sp"
+                    android:textColorHint="@color/accent"
+                    app:boxBackgroundColor="@color/primaryDark"
+                    app:boxCornerRadiusBottomEnd="@dimen/textboxCornerRadius"
+                    app:boxCornerRadiusBottomStart="@dimen/textboxCornerRadius"
+                    app:boxCornerRadiusTopEnd="@dimen/textboxCornerRadius"
+                    app:boxCornerRadiusTopStart="@dimen/textboxCornerRadius"
+                    app:boxStrokeColor="@color/accent"
+                    app:hintTextColor="@color/accent"
+                    app:placeholderTextColor="@color/accent"
+                    app:prefixTextColor="@color/accent"
+                    android:layout_weight="1">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edIndirizzo"
+                        android:layout_width="match_parent"
+                        android:layout_height="50sp"
+                        android:textAlignment="gravity"
+                        android:textColor="@color/accent"
+                        android:textColorHint="@color/accent"/>
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+            </LinearLayout>
+
+
 
         </LinearLayout>
 

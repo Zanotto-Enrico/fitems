@@ -56,7 +56,8 @@
             app:layout_constraintTop_toBottomOf="@id/guideline"
             app:civ_border_width="2sp"
             app:civ_border_color="@color/primaryDark"
-            android:src="@drawable/ic_launcher_foreground"/>
+            android:src="@drawable/ic_launcher_foreground"
+            app:civ_circle_background_color="@color/white"/>
 
         <Space
             android:layout_width="wrap_content"
@@ -113,7 +114,7 @@
                 android:id="@+id/txtName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
+                android:ems="9"
                 android:textColor="@color/white"
                 android:textAlignment="center"
                 android:paddingTop="15sp"
@@ -144,7 +145,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/rounded_corners"
-                android:ems="10"
+                android:ems="9"
                 android:paddingTop="15dp"
                 android:paddingBottom="15sp"
                 android:text="Filippo"
@@ -171,7 +172,7 @@
                 android:id="@+id/txtEmail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="16"
+                android:ems="15"
                 android:textAlignment="center"
                 android:paddingBottom="15sp"
                 android:paddingTop="15sp"
@@ -209,13 +210,12 @@
                 android:id="@+id/txtPost"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:ems="10"
+                android:ems="7"
                 android:textAlignment="center"
                 android:paddingBottom="15sp"
                 android:paddingTop="15sp"
                 android:textColor="@color/white"
-                android:background="@drawable/rounded_corners"
-                />
+                android:background="@drawable/rounded_corners" />
 
         </LinearLayout>
 
