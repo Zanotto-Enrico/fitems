@@ -54,6 +54,10 @@ public class UserAreaEdit extends AppCompatActivity {
         editUsername.setText(UserArea.currentUser.getUsername());
     }
 
+    /**
+     * Metodo che ha il compito di fare il binding con tutte le View all'interno della
+     * nostra activity
+     */
     private void connectWithGraphic(){
         editUsername = (TextView) findViewById(R.id.edUsername);
 
@@ -70,8 +74,17 @@ public class UserAreaEdit extends AppCompatActivity {
         inEmail = (TextInputLayout) findViewById(R.id.inputEmail);
         inLocation = (TextInputLayout) findViewById(R.id.inputIndirizzo);
     }
-    
-    private void updateInfoAPI(View v, String nome, String cognome, String email, Double latitudine, Double longitudine)throws IOException{
+
+    /**
+     * Metodo che ha il compito di chiamare il metodo updateMyInfo dell'API per aggiornare
+     * i dati dell'utente con quelli nuovamente inseriti. Se alcuni argomenti non vengono dati dall'utent, verranno utilizzati
+     * i dati inseriti in precedenza
+     * @param nome nuovo nome utente da inserire
+     * @param cognome
+     * @param email
+     * @la
+     */
+    private void updateInfoAPI(String nome, String cognome, String email, Double latitudine, Double longitudine)throws IOException{
         ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
         Call<JsonObject> call;
 
@@ -108,6 +121,10 @@ public class UserAreaEdit extends AppCompatActivity {
         });
     }
 
+    /**
+     * Metodo che ha il compito di raggruppare e inizializzare i listeners
+     * sugli elementi dell'activity
+     */
     private void addListenerToWidgets(){
 
         btnClose.setOnClickListener(new View.OnClickListener() {
@@ -123,11 +140,11 @@ public class UserAreaEdit extends AppCompatActivity {
             public void onClick(View view) {
                 try {
                     if(editIndirizzo.getText().toString().equals(""))
-                        updateInfoAPI(view, editName.getText().toString(), editLastName.getText().toString(), editEmail.getText().toString(),
+                        updateInfoAPI(editName.getText().toString(), editLastName.getText().toString(), editEmail.getText().toString(),
                                         LatLonGenerator.getCoordinatesFromAddress(UserArea.currentUser.getIndirizzo(), getApplicationContext()).first,
                                         LatLonGenerator.getCoordinatesFromAddress(UserArea.currentUser.getIndirizzo(), getApplicationContext()).second);
                     else
-                        updateInfoAPI(view, editName.getText().toString(), editLastName.getText().toString(), editEmail.getText().toString(),
+                        updateInfoAPI(editName.getText().toString(), editLastName.getText().toString(), editEmail.getText().toString(),
                                 LatLonGenerator.getCoordinatesFromAddress(editIndirizzo.getText().toString(), getApplicationContext()).first,
                                 LatLonGenerator.getCoordinatesFromAddress(editIndirizzo.getText().toString(), getApplicationContext()).second);
                 } catch (IOException e) {

@@ -57,8 +57,10 @@ public class UserArea extends AppCompatActivity {
         addListenerToWidgets();
     }
 
-
-    //Binding degli elementi grafici
+    /**
+     * Metodo che ha il compito di fare il binding con tutte le View all'interno della
+     * nostra activity
+     */
     private void connectWithGraphic(){
         this.txtName = findViewById(R.id.txtName);
         this.txtLastName = findViewById(R.id.txtLastName);
@@ -73,7 +75,10 @@ public class UserArea extends AppCompatActivity {
     }
 
 
-    // Inizializzazione dei listener per i due bottomi presenti nella schermata
+    /**
+     * Metodo che ha il compito di raggruppare e inizializzare i listeners
+     * sugli elementi dell'activity
+     */
     private void addListenerToWidgets(){
 
         this.btnEdit.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +120,10 @@ public class UserArea extends AppCompatActivity {
         });
     }
 
-
+    /**
+     * Metodo che ha il compito di utilizzare l'API chiamando il metodo getMyInfo per inserire
+     * i vari dati dell'utente nelle apposite TextView
+     */
     private void getInfoAPI(){
         ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
 
