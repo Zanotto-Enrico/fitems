@@ -42,10 +42,13 @@ public class UserAreaEdit extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         setContentView(R.layout.activity_user_area_edit);
-
         connectWithGraphic();
         addListenerToWidgets();
 
+        inName.setHint(UserArea.currentUser.getNome());
+        inLastName.setHint(UserArea.currentUser.getCognome());
+        inEmail.setHint(UserArea.currentUser.getEmail());
+        inLocation.setHint(UserArea.currentUser.getIndirizzo());
         editUsername.setText(UserArea.currentUser.getUsername());
     }
 
@@ -121,11 +124,11 @@ public class UserAreaEdit extends AppCompatActivity {
             }
         });
 
-
+        /*
         inName.getEditText().addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                inName.setHint("Nome: " + UserArea.currentUser.getNome());
+                inName.setHint(UserArea.currentUser.getNome());
             }
 
             @Override
@@ -183,5 +186,6 @@ public class UserAreaEdit extends AppCompatActivity {
             @Override
             public void afterTextChanged(Editable editable) {}
         });
+        */
     }
 }
