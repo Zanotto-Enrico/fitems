@@ -118,6 +118,14 @@ public class UserArea extends AppCompatActivity {
                 alert.show();
             }
         });
+
+        this.btnMyPosts.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(view.getContext(), MyPosts.class);
+                view.getContext().startActivity(i);
+            }
+        });
     }
 
     /**

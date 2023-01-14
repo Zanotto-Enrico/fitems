@@ -65,8 +65,6 @@ public class PostView extends AppCompatActivity {
         this.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(PostView.this, MainActivity.class);
-                view.getContext().startActivity(i);
                 finish();
             }
         });

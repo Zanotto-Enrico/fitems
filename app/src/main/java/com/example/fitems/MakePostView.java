@@ -83,8 +83,6 @@ public class MakePostView extends AppCompatActivity {
         this.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MakePostView.this, MainActivity.class);
-                startActivity(i);
                 finish();
             }
         });
@@ -96,8 +94,6 @@ public class MakePostView extends AppCompatActivity {
                         .setType("*/*")
                         .setAction(Intent.ACTION_GET_CONTENT);
                 startActivityForResult(Intent.createChooser(intent, "Select a file"), 123);
-
-
             }
         });
 
