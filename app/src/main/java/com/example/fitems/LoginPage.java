@@ -82,7 +82,6 @@ public class LoginPage extends AppCompatActivity {
                             checkRecLogUsr.logIn(usrInserito, pwdInserta, MyDate.getToday());
 
                             User.initializeLoggedUser(getApplicationContext(), view);
-                            finish();
                         }
                     }
 

@@ -46,6 +46,9 @@ public interface ApiInterface {
     @GET("/post")
     Call<JsonObject> post();
 
+    @POST("/myposts")
+    Call<JsonObject> myposts();
+
     @FormUrlEncoded
     @POST("/makepost")
     Call<JsonObject> makePost(@Field("titolo") String titolo,
@@ -90,4 +93,11 @@ public interface ApiInterface {
     @GET("/getImage")
     Call<ResponseBody> getImage(@Query("idPost") String idPost);
 
+    @FormUrlEncoded
+    @POST("/itemfound")
+    Call<JsonObject> itemFound(@Field("postId") int postId);
+
+    @FormUrlEncoded
+    @POST("/itemfound")
+    Call<JsonObject> itemFound(@Field("postId") int postId, @Field("username") String username);
 }

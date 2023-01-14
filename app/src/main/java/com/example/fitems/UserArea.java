@@ -11,6 +11,7 @@ import android.location.Address;
 import android.location.Geocoder;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +39,7 @@ public class UserArea extends AppCompatActivity {
 
     private TextView txtName, txtLastName, txtEmail, txtLocation, txtPost, txtUserName;
     private ImageButton btnBack, btnEdit, btnLogOut;
+    private Button btnMyPosts;
     static User currentUser;
 
     private CheckRecentlyLoggedUser checkRecLogUsr;
@@ -49,7 +51,6 @@ public class UserArea extends AppCompatActivity {
         getWindow().setStatusBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         setContentView(R.layout.activity_user_area);
-
         this.checkRecLogUsr = new CheckRecentlyLoggedUser(this.getSharedPreferences("fitems", Context.MODE_PRIVATE));
 
         connectWithGraphic();
@@ -72,15 +73,14 @@ public class UserArea extends AppCompatActivity {
         this.btnLogOut = findViewById(R.id.btnLogOut_UserArea);
         this.btnBack = findViewById(R.id.btnBack);
         this.btnEdit = findViewById(R.id.btnEdit);
+        this.btnMyPosts = findViewById(R.id.btnMyPosts_UserArea);
     }
-
 
     /**
      * Metodo che ha il compito di raggruppare e inizializzare i listeners
      * sugli elementi dell'activity
      */
     private void addListenerToWidgets(){
-
         this.btnEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
