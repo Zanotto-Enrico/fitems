@@ -17,6 +17,7 @@ import android.widget.Toast;
 
 import com.example.fitems.Classes.ApiInterface;
 import com.example.fitems.Classes.CheckRecentlyLoggedUser;
+import com.example.fitems.Classes.LatLonGenerator;
 import com.example.fitems.Classes.MyDate;
 import com.example.fitems.Classes.RetrofitClient;
 import com.example.fitems.Classes.User;
@@ -124,23 +125,23 @@ public class UserArea extends AppCompatActivity {
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 
                 JsonElement punti = response.body().get("punteggio");
-                currentUser = new User(response.body().get("username").toString().replace("\"",""),
-                        response.body().get("nome").toString().replace("\"",""),
-                        response.body().get("cognome").toString().replace("\"",""), "",
-                        response.body().get("email").toString().replace("\"",""),"" ,
-                        response.body().get("nascita").toString().replace("\"",""),
-                        punti == null ? -1 : Integer.parseInt(punti.toString().replace("\"","")));
-
+                try {
+                    currentUser = new User(response.body().get("username").toString().replace("\"",""),
+                            response.body().get("nome").toString().replace("\"",""),
+                            response.body().get("cognome").toString().replace("\"",""), "",
+                            response.body().get("email").toString().replace("\"",""),
+                            LatLonGenerator.getAddressFromCoordinates(Double.parseDouble(response.body().get("latitudine").toString().replace("\"","")), Double.parseDouble(response.body().get("longitudine").toString().replace("\"","")), getApplicationContext()),
+                            response.body().get("nascita").toString().replace("\"",""),
+                            punti == null ? -1 : Integer.parseInt(punti.toString().replace("\"","")));
+                } catch (IOException e){
+                    e.printStackTrace();
+                }
                 txtUserName.setText(currentUser.getUsername());
                 txtName.setText(currentUser.getNome());
                 txtLastName.setText(currentUser.getCognome());
                 txtEmail.setText(currentUser.getEmail());
                 txtLocation.setText(currentUser.getIndirizzo());
                 txtPost.setText(response.body().get("postPubblicati").toString());
-
-                // TODO --> Convertire da Latitudine e Longitudine nella Via per inserirlo nel campo Location
-
-
 
             }
 

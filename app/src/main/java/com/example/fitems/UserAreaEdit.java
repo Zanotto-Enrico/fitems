@@ -18,9 +18,12 @@ import android.widget.Toast;
 import com.example.fitems.Classes.ApiInterface;
 import com.example.fitems.Classes.LatLonGenerator;
 import com.example.fitems.Classes.RetrofitClient;
+import com.example.fitems.Classes.User;
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.textfield.TextInputLayout;
 import com.google.gson.JsonObject;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 
@@ -31,10 +34,9 @@ import retrofit2.Response;
 public class UserAreaEdit extends AppCompatActivity {
 
     private TextView editUsername;
-    private EditText editName, editLastName, editEmail, editLocation;
+    private TextView editName, editLastName, editEmail, editIndirizzo;
     private ImageButton btnCheck, btnClose;
     private TextInputLayout inName, inLastName, inEmail, inLocation;
-    private String name, lastname, email, location;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,10 +57,10 @@ public class UserAreaEdit extends AppCompatActivity {
     private void connectWithGraphic(){
         editUsername = (TextView) findViewById(R.id.edUsername);
 
-        editName = (EditText) findViewById(R.id.edName);
-        editLastName = (EditText) findViewById(R.id.edLastName);
-        editEmail = (EditText) findViewById(R.id.edEmail);
-        editLocation = (EditText) findViewById(R.id.edLocation);
+        editName = (TextView) findViewById(R.id.edName);
+        editLastName = (TextView) findViewById(R.id.edLastName);
+        editEmail = (TextView) findViewById(R.id.edEmail);
+        editIndirizzo = (TextView) findViewById(R.id.edIndirizzo) ;
 
         btnCheck = (ImageButton) findViewById(R.id.btnEdit);
         btnClose = (ImageButton) findViewById(R.id.btnClose);
@@ -66,7 +68,7 @@ public class UserAreaEdit extends AppCompatActivity {
         inName = (TextInputLayout) findViewById(R.id.inputName);
         inLastName = (TextInputLayout) findViewById(R.id.inputLastName);
         inEmail = (TextInputLayout) findViewById(R.id.inputEmail);
-        inLocation = (TextInputLayout) findViewById(R.id.inputLocation);
+        inLocation = (TextInputLayout) findViewById(R.id.inputIndirizzo);
     }
     
     private void updateInfoAPI(View v, String nome, String cognome, String email, Double latitudine, Double longitudine)throws IOException{
@@ -85,6 +87,15 @@ public class UserAreaEdit extends AppCompatActivity {
 
                 if(response.body().get("status").toString().equals("\"SUCCESS\"")) {
                     Toast.makeText(UserAreaEdit.this, "I dati sono stati aggiornati con successo!", Toast.LENGTH_LONG).show();
+
+                    UserArea.currentUser.setNome(nome);
+                    UserArea.currentUser.setCognome(cognome);
+                    UserArea.currentUser.setEmail(email);
+                       try {
+                        UserArea.currentUser.setIndirizzo(LatLonGenerator.getAddressFromCoordinates(latitudine, longitudine, getBaseContext()));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
 
                     finish();
                 }
@@ -110,82 +121,19 @@ public class UserAreaEdit extends AppCompatActivity {
         btnCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String nome = editName.getText().toString();
-                String cognome = editLastName.getText().toString();
-                String email = editEmail.getText().toString();
-                String indirizzo = editLocation.getText().toString();
-
                 try {
-                    updateInfoAPI(view, nome, cognome, email, LatLonGenerator.getCoordinatesFromAddress(indirizzo, getApplicationContext()).first,
-                                    LatLonGenerator.getCoordinatesFromAddress(indirizzo, getApplicationContext()).second);
+                    if(editIndirizzo.getText().toString().equals(""))
+                        updateInfoAPI(view, editName.getText().toString(), editLastName.getText().toString(), editEmail.getText().toString(),
+                                        LatLonGenerator.getCoordinatesFromAddress(UserArea.currentUser.getIndirizzo(), getApplicationContext()).first,
+                                        LatLonGenerator.getCoordinatesFromAddress(UserArea.currentUser.getIndirizzo(), getApplicationContext()).second);
+                    else
+                        updateInfoAPI(view, editName.getText().toString(), editLastName.getText().toString(), editEmail.getText().toString(),
+                                LatLonGenerator.getCoordinatesFromAddress(editIndirizzo.getText().toString(), getApplicationContext()).first,
+                                LatLonGenerator.getCoordinatesFromAddress(editIndirizzo.getText().toString(), getApplicationContext()).second);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         });
-
-        /*
-        inName.getEditText().addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                inName.setHint(UserArea.currentUser.getNome());
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-
-            @Override
-            public void afterTextChanged(Editable editable) {}
-        });
-
-
-        inLastName.getEditText().addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                inLastName.setHint("Cognome: " + UserArea.currentUser.getCognome());
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-
-            @Override
-            public void afterTextChanged(Editable editable) {}
-        });
-
-
-        inEmail.getEditText().addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                inEmail.setHint("Email: " + UserArea.currentUser.getEmail());
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                if(!Patterns.EMAIL_ADDRESS.matcher(charSequence).matches()){
-                    inEmail.setError(getString(R.string.input_error));
-                    inEmail.setErrorEnabled(true);
-                } else {
-                    inEmail.setErrorEnabled(false);
-                }
-            }
-
-            @Override
-            public void afterTextChanged(Editable editable) {}
-        });
-
-
-        inLocation.getEditText().addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-                inLocation.setHint("Indirizzo: " + UserArea.currentUser.getIndirizzo());
-            }
-
-            @Override
-            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {}
-
-            @Override
-            public void afterTextChanged(Editable editable) {}
-        });
-        */
     }
 }

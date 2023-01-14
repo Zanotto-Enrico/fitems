@@ -94,10 +94,19 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10sp"
-                android:text="Edit contact info"
+                android:layout_marginBottom="15sp"
+                android:text="Modifica profilo"
                 android:textColor="@color/white"
-                android:textSize="23sp"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:text="Info generali"
+                android:textColor="@color/white"
+                android:textSize="20sp"
                 android:textStyle="bold" />
 
             <LinearLayout
@@ -134,7 +143,7 @@
                     app:placeholderTextColor="@color/accent"
                     app:prefixTextColor="@color/accent">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edName"
                         android:layout_width="match_parent"
                         android:layout_height="50sp"
@@ -149,7 +158,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="13sp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -180,7 +188,7 @@
                     app:placeholderTextColor="@color/accent"
                     app:prefixTextColor="@color/accent">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edLastName"
                         android:layout_width="match_parent"
                         android:layout_height="50sp"
@@ -203,7 +211,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="10sp"
+                    android:layout_marginRight="15sp"
                     android:layout_weight="1"
                     android:text="Email"
                     android:textAlignment="center"
@@ -227,7 +235,7 @@
                     app:placeholderTextColor="@color/accent"
                     app:prefixTextColor="@color/accent">
 
-                    <EditText
+                    <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edEmail"
                         android:layout_width="match_parent"
                         android:layout_height="50sp"
@@ -238,6 +246,15 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:text="Quartiere"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -256,7 +273,7 @@
                     android:textSize="16sp"/>
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/inputLocation"
+                    android:id="@+id/inputIndirizzo"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="250sp"
                     android:layout_height="60sp"
@@ -272,8 +289,8 @@
                     app:prefixTextColor="@color/accent"
                     android:layout_weight="1">
 
-                    <EditText
-                        android:id="@+id/edLocation"
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/edIndirizzo"
                         android:layout_width="match_parent"
                         android:layout_height="50sp"
                         android:textAlignment="gravity"
@@ -283,6 +300,8 @@
                 </com.google.android.material.textfield.TextInputLayout>
 
             </LinearLayout>
+
+
 
         </LinearLayout>
 
