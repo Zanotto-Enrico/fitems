@@ -116,7 +116,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="80sp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10sp"
                     android:layout_weight="1"
@@ -143,6 +143,7 @@
                     app:placeholderTextColor="@color/accent"
                     app:prefixTextColor="@color/accent">
 
+
                     <com.google.android.material.textfield.TextInputEditText
                         android:id="@+id/edName"
                         android:layout_width="match_parent"
@@ -162,7 +163,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="80sp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10sp"
                     android:layout_weight="1"
@@ -209,9 +210,9 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="80sp"
                     android:layout_height="wrap_content"
-                    android:layout_marginRight="15sp"
+                    android:layout_marginRight="10sp"
                     android:layout_weight="1"
                     android:text="Email"
                     android:textAlignment="center"
@@ -241,7 +242,8 @@
                         android:layout_height="50sp"
                         android:textAlignment="gravity"
                         android:textColor="@color/accent"
-                        android:textColorHint="@color/accent"/>
+                        android:textColorHint="@color/accent" />
+
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -263,14 +265,14 @@
                 android:gravity="center_vertical">
 
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="80sp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10sp"
                     android:layout_weight="1"
                     android:text="Indirizzo"
                     android:textAlignment="center"
                     android:textColor="@color/white"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
                 <com.google.android.material.textfield.TextInputLayout
                     android:id="@+id/inputIndirizzo"

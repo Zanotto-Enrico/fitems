@@ -115,7 +115,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:ems="9"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:textAlignment="center"
                 android:paddingTop="15sp"
                 android:paddingBottom="15sp"
@@ -150,7 +150,7 @@
                 android:paddingBottom="15sp"
                 android:text="Filippo"
                 android:textAlignment="center"
-                android:textColor="@color/black" />
+                android:textColor="@color/white" />
 
         </LinearLayout>
 
@@ -176,7 +176,7 @@
                 android:textAlignment="center"
                 android:paddingBottom="15sp"
                 android:paddingTop="15sp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:background="@drawable/rounded_corners" />
 
             <TextView
@@ -195,7 +195,7 @@
                 android:textAlignment="center"
                 android:paddingBottom="15sp"
                 android:paddingTop="15sp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:background="@drawable/rounded_corners"/>
 
             <TextView
@@ -214,7 +214,7 @@
                 android:textAlignment="center"
                 android:paddingBottom="15sp"
                 android:paddingTop="15sp"
-                android:textColor="@color/black"
+                android:textColor="@color/white"
                 android:background="@drawable/rounded_corners" />
 
         </LinearLayout>
