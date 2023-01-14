@@ -93,4 +93,11 @@ public interface ApiInterface {
     @GET("/getImage")
     Call<ResponseBody> getImage(@Query("idPost") String idPost);
 
+    @FormUrlEncoded
+    @POST("/itemfound")
+    Call<JsonObject> itemFound(@Field("postId") int postId);
+
+    @FormUrlEncoded
+    @POST("/itemfound")
+    Call<JsonObject> itemFound(@Field("postId") int postId, @Field("username") String username);
 }

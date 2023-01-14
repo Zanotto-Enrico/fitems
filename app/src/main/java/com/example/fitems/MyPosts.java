@@ -75,6 +75,7 @@ public class MyPosts extends AppCompatActivity {
                 Intent i = new Intent(MyPosts.this, ManagePost.class);
                 // sto cercando di avviare una activity da un punto esterno a quello del contesto corrente
                 i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                System.out.println(posts.get(_i_).getId_post());
                 i.putExtra("nome_oggetto", posts.get(_i_).getTitolo());
                 i.putExtra("id_oggetto", posts.get(_i_).getId_post());
                 view.getContext().startActivity(i);
