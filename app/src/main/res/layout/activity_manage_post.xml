@@ -36,7 +36,7 @@
         android:id="@+id/btnConfermaRitrovamento_ManagePost"
         android:layout_width="378dp"
         android:layout_height="75dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="80dp"
         android:backgroundTint="@color/primaryLight"
         android:text="Ho ritrovato il mio oggetto da solo"
         android:textColor="@color/accent"
@@ -51,7 +51,7 @@
         android:id="@+id/btnConfermaRestituzione_ManagePost"
         android:layout_width="378dp"
         android:layout_height="75dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="36dp"
         android:backgroundTint="@color/primaryLight"
         android:text="Conferma restituzione oggetto"
         android:textColor="@color/accent"
@@ -61,4 +61,17 @@
         app:layout_constraintHorizontal_bias="0.515"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnConfermaRitrovamento_ManagePost" />
+
+    <TextView
+        android:id="@+id/txtInfo_ManagePost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="TextView"
+        android:textColor="@color/primaryLight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNomePost_ManagePost" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

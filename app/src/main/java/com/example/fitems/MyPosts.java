@@ -78,6 +78,7 @@ public class MyPosts extends AppCompatActivity {
                 System.out.println(posts.get(_i_).getId_post());
                 i.putExtra("nome_oggetto", posts.get(_i_).getTitolo());
                 i.putExtra("id_oggetto", posts.get(_i_).getId_post());
+                i.putExtra("stato", String.valueOf(posts.get(_i_).getStato()));
                 view.getContext().startActivity(i);
             }
         });

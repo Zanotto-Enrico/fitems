@@ -22,9 +22,9 @@ import retrofit2.Response;
 
 public class ManagePost extends AppCompatActivity {
     private ImageButton btnBack;
-    private TextView txtNomePost;
+    private TextView txtNomePost, txtInfo;
     private Button btnTrovatoIo, btnRestituzione;
-    private int idPost;
+    protected static int idPost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,7 +37,15 @@ public class ManagePost extends AppCompatActivity {
         addListenerToWidgets();
 
         this.txtNomePost.setText(getIntent().getStringExtra("nome_oggetto"));
-        this.idPost = Integer.parseInt(getIntent().getStringExtra("id_oggetto"));
+        idPost = Integer.parseInt(getIntent().getStringExtra("id_oggetto"));
+
+        if (Integer.parseInt(getIntent().getStringExtra("stato")) == 1) {
+            this.btnTrovatoIo.setVisibility(View.INVISIBLE);
+            this.btnRestituzione.setVisibility(View.INVISIBLE);
+            this.txtInfo.setText("Hai già ritrovato questo oggetto!");
+        } else {
+            this.txtInfo.setVisibility(View.INVISIBLE);
+        }
     }
 
     //Binding degli elementi grafici
@@ -46,6 +54,7 @@ public class ManagePost extends AppCompatActivity {
         this.txtNomePost = findViewById(R.id.txtNomePost_ManagePost);
         this.btnRestituzione = findViewById(R.id.btnConfermaRestituzione_ManagePost);
         this.btnTrovatoIo = findViewById(R.id.btnConfermaRitrovamento_ManagePost);
+        this.txtInfo = findViewById(R.id.txtInfo_ManagePost);
     }
 
     // Inizializzazione dei listener per i due bottomi presenti nella schermata
@@ -60,7 +69,8 @@ public class ManagePost extends AppCompatActivity {
         this.btnRestituzione.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                confermaRestituzione();
+                CustomDialogManagePost dialog = new CustomDialogManagePost();
+                dialog.show(getSupportFragmentManager(), "");
             }
         });
 
@@ -72,13 +82,9 @@ public class ManagePost extends AppCompatActivity {
         });
     }
 
-    private void confermaRestituzione() {
-
-    }
-
     private void confermaRitrovamento() {
         ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
-        Call<JsonObject> call = apiInterface.itemFound(this.idPost);
+        Call<JsonObject> call = apiInterface.itemFound(idPost);
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
