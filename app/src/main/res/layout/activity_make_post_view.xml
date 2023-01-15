@@ -94,7 +94,8 @@
             app:boxStrokeColor="@color/accent"
             app:hintTextColor="@color/accent"
             app:placeholderTextColor="@color/accent"
-            app:prefixTextColor="@color/accent">
+            app:prefixTextColor="@color/accent"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/txtTitolo"
@@ -119,7 +120,8 @@
             android:paddingBottom="15sp"
             android:textAlignment="gravity"
             android:textColor="@color/primaryLight"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:textColorHint="@color/white"/>
 
     </LinearLayout>
 
