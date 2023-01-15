@@ -34,8 +34,10 @@
 
 
     <ScrollView
-        android:layout_width="408dp"
+        android:layout_width="0dp"
         android:layout_height="640dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         android:fillViewport="true"
         android:orientation="vertical"
         android:padding="16sp"
