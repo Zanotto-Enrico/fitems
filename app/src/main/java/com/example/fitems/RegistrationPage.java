@@ -33,10 +33,8 @@ public class RegistrationPage extends AppCompatActivity {
 
     private EditText txtUsername, txtNome, txtCognome, txtPassword1, txtPassword2, txtIndirizzo, txtEmail;
     private Button btnRegistrati, btnDatePicker;
-    private ImageButton btnIndex;
+    private ImageButton btnBack;
     private DatePickerDialog datePickerDialog;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +59,7 @@ public class RegistrationPage extends AppCompatActivity {
 
         this.btnRegistrati = findViewById(R.id.btnRegistrati_registration);
         this.btnDatePicker = findViewById(R.id.btnDatePicker_registration);
-        this.btnIndex = findViewById(R.id.btnIndex_registration);
+        this.btnBack = findViewById(R.id.btnIndex_registration);
         initDatePicker();
     }
 
@@ -93,16 +91,17 @@ public class RegistrationPage extends AppCompatActivity {
                     try {
                         registerUser(user, view);
                     } catch (Exception e) {
-                        Toast.makeText(RegistrationPage.this, "Errore: " + e.getMessage(), Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegistrationPage.this, "Errore. Il contenuto dei campi forniti non è valido. Controllare.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(RegistrationPage.this, "Provare a modificare lo username oppure il formato con cui l'indirizzo è stato inserito", Toast.LENGTH_LONG).show();
                     }
                 } else
-                    Toast.makeText(RegistrationPage.this, "Controlla i dati inseriti!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(RegistrationPage.this, "Attenzione: compila tutti i campi richiesti e controlla l'uguaglianza delle password!", Toast.LENGTH_SHORT).show();
 
             }
         });
 
 
-        this.btnIndex.setOnClickListener(new View.OnClickListener() {
+        this.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 finish();
@@ -154,8 +153,10 @@ public class RegistrationPage extends AppCompatActivity {
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
 
                 if(response.body().get("status").toString().equals("\"SUCCESS\"")) {
-                    Toast.makeText(RegistrationPage.this, "Utente creato con successo!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegistrationPage.this, "Utente creato con successo! Esegui ora l'accesso al sistema.", Toast.LENGTH_LONG).show();
                     finish();
+                } else {
+                    Toast.makeText(RegistrationPage.this, "Errore: non è stato possibile creare il tuo utente. Riprovare più tardi.", Toast.LENGTH_LONG).show();
                 }
             }
 

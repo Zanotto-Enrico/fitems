@@ -34,22 +34,21 @@
         app:layout_constraintTop_toBottomOf="@+id/btnIndex_registration" />
 
     <ScrollView
-        android:layout_width="348dp"
-        android:layout_height="400dp"
-        android:layout_marginTop="24dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnRegistrati_registration"
+        android:id="@+id/scrollView2"
+        android:layout_width="367dp"
+        android:layout_height="488dp"
+        android:layout_marginTop="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.175">
+        app:layout_constraintTop_toBottomOf="@+id/textView">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:paddingLeft="20sp"
-            android:paddingRight="20sp"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingLeft="20sp"
+            android:paddingRight="20sp">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
@@ -69,8 +68,8 @@
                     android:id="@+id/txtNome_registration"
                     android:layout_width="match_parent"
                     android:layout_height="65sp"
-                    android:inputType="textPersonName"
                     android:hint="@string/nome"
+                    android:inputType="textPersonName"
                     android:textColor="@color/accent" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -92,8 +91,8 @@
                     android:id="@+id/txtCognome_registration"
                     android:layout_width="match_parent"
                     android:layout_height="65sp"
-                    android:inputType="textPersonName"
                     android:hint="@string/cognome"
+                    android:inputType="textPersonName"
                     android:textColor="@color/accent" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -115,8 +114,8 @@
                     android:id="@+id/txtUsername_registration"
                     android:layout_width="match_parent"
                     android:layout_height="65sp"
-                    android:inputType="textPersonName"
                     android:hint="@string/username"
+                    android:inputType="textPersonName"
                     android:textColor="@color/accent" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -138,8 +137,8 @@
                     android:id="@+id/txtPassword1_registration"
                     android:layout_width="match_parent"
                     android:layout_height="65sp"
-                    android:inputType="textPassword"
                     android:hint="@string/password"
+                    android:inputType="textPassword"
                     android:textColor="@color/accent" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -162,8 +161,8 @@
                     android:id="@+id/txtPassword2_registration"
                     android:layout_width="match_parent"
                     android:layout_height="65sp"
-                    android:inputType="textPassword"
                     android:hint="@string/ripeti_password"
+                    android:inputType="textPassword"
                     android:textColor="@color/accent" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -185,7 +184,6 @@
                     android:id="@+id/txtIndirizzo_registration"
                     android:layout_width="match_parent"
                     android:layout_height="65sp"
-                    android:inputType="textEmailAddress"
                     android:hint="@string/indirizzo"
                     android:textColor="@color/accent" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -208,8 +206,8 @@
                     android:id="@+id/txtEmail_registration"
                     android:layout_width="match_parent"
                     android:layout_height="65sp"
-                    android:inputType="textPersonName"
                     android:hint="@string/email"
+                    android:inputType="textEmailAddress"
                     android:textColor="@color/accent" />
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -217,15 +215,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Data di nascita:"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white" />
+
             <Button
                 android:id="@+id/btnDatePicker_registration"
+                style="?android:spinnerStyle"
                 android:layout_width="250dp"
                 android:layout_height="wrap_content"
                 android:text="01/01/2000"
-                android:textSize="20sp"
                 android:textColor="@color/primaryLight"
-                style="?android:spinnerStyle" />
+                android:textSize="20sp" />
 
 
         </LinearLayout>
@@ -235,15 +234,15 @@
         android:id="@+id/btnRegistrati_registration"
         android:layout_width="210sp"
         android:layout_height="80sp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="@color/primaryLight"
         android:text="Registrati"
         android:textColor="@color/accent"
         android:textSize="20sp"
         app:cornerRadius="@dimen/btnCornerRadius"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
