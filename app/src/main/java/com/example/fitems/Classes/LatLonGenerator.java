@@ -25,7 +25,7 @@ public class LatLonGenerator {
         List<Address> addresses = geocoder.getFromLocationName(address, 1);
         Address a = addresses.get(0);
 
-        return new Pair<>(a.getLongitude(), a.getLatitude());
+        return new Pair<>( a.getLatitude(), a.getLongitude());
     }
 
     /**
