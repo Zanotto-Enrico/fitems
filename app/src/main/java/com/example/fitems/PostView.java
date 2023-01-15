@@ -8,12 +8,17 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.fitems.Classes.ApiInterface;
+import com.example.fitems.Classes.Chat;
 import com.example.fitems.Classes.RetrofitClient;
+import com.example.fitems.Classes.User;
+
+import java.util.ArrayList;
 
 import okhttp3.ResponseBody;
 import retrofit2.Call;
@@ -25,7 +30,8 @@ public class PostView extends AppCompatActivity {
     private TextView txtUsername, txtStato, txtData, txtDescrizione, txtTitolo;
     private ImageView postImg;
     private ImageButton btnBack;
-    private String post_id;
+    private Button btnContatta;
+    private String post_id,proprietario;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,7 @@ public class PostView extends AppCompatActivity {
         this.btnBack = findViewById(R.id.btnBack_PostView);
         this.txtTitolo = findViewById(R.id.txtTitolo_PostView);
         this.postImg = findViewById(R.id.ed_user_image);
+        this.btnContatta = findViewById(R.id.button3);
     }
 
     private void setGraphics(){
@@ -58,6 +65,10 @@ public class PostView extends AppCompatActivity {
         this.txtDescrizione.setText(bundle.getString("descrizione"));
         this.txtTitolo.setText(bundle.getString("titolo"));
         post_id = bundle.getString("id");
+        proprietario = bundle.getString("username");
+        if(User.loggedUser.getUsername().equals(proprietario))
+            btnContatta.setEnabled(false);
+
         loadPostImage();
     }
 
@@ -66,6 +77,15 @@ public class PostView extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+
+        this.btnContatta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(PostView.this, ChatView.class);
+                intent.putExtra("username",proprietario);
+                view.getContext().startActivity(intent);
             }
         });
     }
