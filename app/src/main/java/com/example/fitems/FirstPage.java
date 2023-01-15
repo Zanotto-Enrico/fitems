@@ -61,7 +61,11 @@ public class FirstPage extends AppCompatActivity {
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                     if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
                         User.initializeLoggedUser(getApplicationContext(), new View(getApplicationContext()));
-                        //finish();
+                    }
+                    else {
+                        spinner.setVisibility(View.INVISIBLE);
+                        btnAccedi.setVisibility(View.VISIBLE);
+                        btnRegistrati.setVisibility(View.VISIBLE);
                     }
                 }
 
@@ -73,13 +77,21 @@ public class FirstPage extends AppCompatActivity {
         }
     }
 
+    /**
+     * Metodo che ha il compito di fare il binding con tutte le View all'interno della
+     * nostra activity
+     */
     private void connectWithGraphic() {
         this.btnRegistrati = findViewById(R.id.button2);
         this.btnAccedi = findViewById(R.id.button);
-        this.spinner = (ProgressBar)findViewById(R.id.loading);
+        this.spinner = findViewById(R.id.loading);
     }
 
 
+    /**
+     * Metodo che ha il compito di raggruppare e inizializzare i listeners
+     * sugli elementi dell'activity
+     */
     private void addListenerToWidgets() {
         btnAccedi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,14 +108,21 @@ public class FirstPage extends AppCompatActivity {
         });
     }
 
+    /**
+     * Metodo per aprire una activity
+     * @param view activity attuale
+     * @param goWhere activity in cui spostarsi
+     */
     private void goTo(View view, Class<?> goWhere) {
         Intent i = new Intent(FirstPage.this, goWhere);
         view.getContext().startActivity(i);
     }
 
 
+    /**
+     * Override del metodo originale per vietare la possibilità di muoversi indietro una volta raggiunta
+     * questa schermata
+     */
     @Override
     public void onBackPressed() { }
-
-
 }

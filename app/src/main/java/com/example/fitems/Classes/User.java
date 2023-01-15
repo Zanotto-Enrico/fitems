@@ -24,12 +24,20 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
+/**
+ * Classe rappresentante un utente del sistema.
+ * Essa è dotata di diversi campi interni in grado di identificare tale utente e in più una coppia
+ * di getter e setter per ciascun campo per potervi accedere sia in lettura che in eventuale scrittura.
+ * L'information hiding per questa classe è massimizzato
+ */
 public class User {
     private String username, nome, cognome, password, email, indirizzo;
     private String dataNascita;
     private int points;
+    /**
+     * Campo statico identificante le informazioni dell'utente attualmente loggato nel sistema
+     */
     public static User loggedUser;
-    public static final Object lock = new Object();
 
     public User(String username, String nome, String cognome, String password, String email, String indirizzo, String dataNascita, int points) {
         this.username = username;
@@ -42,8 +50,15 @@ public class User {
         this.points = points;
     }
 
+    @Deprecated
     private User() { }
 
+    /**
+     * Metodo statico avente l'obiettivo di inizializzare le informazioni relative all'utente attualmente
+     * autenticato nel sistema, ovvero il campo statico <code>loggedUser</code>
+     * @param c contesto sul quale si esegue il metodo
+     * @param view view dalla quale avviare la nuova activity
+     */
     public static void initializeLoggedUser(Context c, View view) {
         ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
 
@@ -51,36 +66,35 @@ public class User {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                synchronized (lock) {
-                    loggedUser = new User();
-                    double lat, lon;
-                    lat = Double.parseDouble(response.body().get("latitudine").getAsString());
-                    lon = Double.parseDouble(response.body().get("longitudine").getAsString());
+                loggedUser = new User();
+                double lat, lon;
+                lat = Double.parseDouble(response.body().get("latitudine").getAsString());
+                lon = Double.parseDouble(response.body().get("longitudine").getAsString());
 
-                    User.loggedUser.setUsername(response.body().get("username").getAsString());
-                    User.loggedUser.setPassword("IMPOSSIBLE TO KNOW HERE");
-                    User.loggedUser.setEmail(response.body().get("email").getAsString());
-                    User.loggedUser.setNome(response.body().get("nome").getAsString());
-                    User.loggedUser.setCognome(response.body().get("cognome").getAsString());
-                    User.loggedUser.setDataNascita(response.body().get("nascita").getAsString());
+                User.loggedUser.setUsername(response.body().get("username").getAsString());
+                User.loggedUser.setPassword("IMPOSSIBLE TO KNOW HERE");
+                User.loggedUser.setEmail(response.body().get("email").getAsString());
+                User.loggedUser.setNome(response.body().get("nome").getAsString());
+                User.loggedUser.setCognome(response.body().get("cognome").getAsString());
+                User.loggedUser.setDataNascita(response.body().get("nascita").getAsString());
 
-                    try {
-                        User.loggedUser.setIndirizzo(LatLonGenerator.getAddressFromCoordinates(lat, lon, c));
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-
-                    if (response.body().has("punteggio"))
-                        User.loggedUser.setPoints(Integer.valueOf(response.body().get("punteggio").getAsString()));
-                    else
-                        User.loggedUser.setPoints(-1);
-
-                    Intent i = new Intent(view.getContext(), MainActivity.class);
-                    // sto cercando di avviare una activity da un punto esterno a quello del contesto corrente
-                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    view.getContext().startActivity(i);
+                try {
+                    User.loggedUser.setIndirizzo(LatLonGenerator.getAddressFromCoordinates(lat, lon, c));
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
+
+                if (response.body().has("punteggio"))
+                    User.loggedUser.setPoints(Integer.valueOf(response.body().get("punteggio").getAsString()));
+                else
+                    User.loggedUser.setPoints(-1);
+
+                Intent i = new Intent(view.getContext(), MainActivity.class);
+                // sto cercando di avviare una activity da un punto esterno a quello del contesto corrente
+                i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                view.getContext().startActivity(i);
             }
+
 
             @Override
             public void onFailure(Call<JsonObject> call, Throwable t) {
@@ -88,7 +102,6 @@ public class User {
             }
         });
     }
-
 
     public String getUsername() {
         return this.username;

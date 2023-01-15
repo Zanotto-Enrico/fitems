@@ -2,6 +2,12 @@ package com.example.fitems.Classes;
 
 import java.util.Objects;
 
+/**
+ * Classe rappresentante un post del sistema.
+ * Essa è dotata di diversi campi interni in grado di identificare tale post e in più una coppia
+ * di getter e setter per ciascun campo per potervi accedere sia in lettura che in eventuale scrittura.
+ * L'information hiding per questa classe è massimizzato
+ */
 public class Post {
     private String titolo, descrizione, data, username, id_post;
     private int stato;
@@ -20,6 +26,7 @@ public class Post {
         this.username = username;
         this.id_post = id_post;
     }
+
     public String getId_post() {return this.id_post;}
 
     public void setId_post(String id_post) {this.id_post = id_post;}

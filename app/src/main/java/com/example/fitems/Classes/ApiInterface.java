@@ -20,6 +20,10 @@ import retrofit2.http.GET;
 import retrofit2.http.Part;
 import retrofit2.http.Query;
 
+/**
+ * Classe contenente tutti i metodi API utilizzabili in questa app. Per una maggiore specifica dei
+ * metodi si consiglia di consultare l'URL seguente: http://fitems.giize.com:33331/
+ */
 public interface ApiInterface {
 
     @FormUrlEncoded

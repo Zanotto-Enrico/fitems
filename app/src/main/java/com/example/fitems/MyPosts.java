@@ -53,14 +53,20 @@ public class MyPosts extends AppCompatActivity {
         downloadMyPosts();
     }
 
-    //Binding degli elementi grafici
+    /**
+     * Metodo che ha il compito di fare il binding con tutte le View all'interno della
+     * nostra activity
+     */
     private void connectWithGraphic() {
         this.listViewMyPosts = findViewById(R.id.listPosts_MyPosts);
         this.btnBack = findViewById(R.id.btnBack_MyPosts);
         this.txtNoPosts = findViewById(R.id.txtNoPosts_MyPosts);
     }
 
-    // Inizializzazione dei listener per i due bottomi presenti nella schermata
+    /**
+     * Metodo che ha il compito di raggruppare e inizializzare i listeners
+     * sugli elementi dell'activity
+     */
     private void addListenerToWidgets() {
         this.btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,6 +90,9 @@ public class MyPosts extends AppCompatActivity {
         });
     }
 
+    /**
+     * Metodo avente il compito di richiedere al server tutti i post creati dall'utente attualmente loggato
+     */
     private void downloadMyPosts() {
         ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
 

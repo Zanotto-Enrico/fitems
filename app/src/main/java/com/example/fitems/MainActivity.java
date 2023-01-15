@@ -90,6 +90,10 @@ public class MainActivity extends AppCompatActivity {
         setBonusPoints();
     }
 
+    /**
+     * Metodo utilizzato per gestire la visualizzazione dei bonus points nella schermata home.
+     * Essi saranno visibili esclusivamente nel caso in cui l'utente autenticato sia minorenne.
+     */
     private void setBonusPoints() {
         SpannableStringBuilder ssb = new SpannableStringBuilder();
         ssb.append(" ");
@@ -103,7 +107,10 @@ public class MainActivity extends AppCompatActivity {
             this.txtBonusPoints.setVisibility(View.INVISIBLE);
     }
 
-
+    /**
+     * Metodo che ha il compito di fare il binding con tutte le View all'interno della
+     * nostra activity
+     */
     private void connectWithGraphic() {
         this.btnAccount = findViewById(R.id.btnAccount_homepage);
         this.listViewPost = findViewById(R.id.listPosts_home);
@@ -113,7 +120,10 @@ public class MainActivity extends AppCompatActivity {
         this.btnChat = findViewById(R.id.btnChat);
     }
 
-
+    /**
+     * Metodo che ha il compito di raggruppare e inizializzare i listeners
+     * sugli elementi dell'activity
+     */
     private void addListenerToWidgets() {
         this.btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,10 +205,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Override del metodo originale per vietare la possibilità di muoversi indietro una volta raggiunta
+     * questa schermata
+     */
     @Override
     public void onBackPressed() { }
 
-    private void getCurrentLocation(){
+    private void getCurrentLocation() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             if (ActivityCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
 

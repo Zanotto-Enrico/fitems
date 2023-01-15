@@ -15,6 +15,11 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
+/**
+ * Classe fondamentale per impostare una serie di parametri essenziali per la comunicazione con il
+ * server di API. Essa costituisce il vero e proprio strumento per l'accesso alle funzioni API definite
+ * nell'interfaccia <code>ApiInterface</code>
+ */
 public class RetrofitClient {
     public static Retrofit retrofit;
     static HttpLoggingInterceptor interceptor = new HttpLoggingInterceptor();
@@ -28,6 +33,12 @@ public class RetrofitClient {
             .build();
 
 
+    /**
+     * Metodo avente il compito di restituire una istanza di retrofit del tutto nuova per il
+     * collegamento al server e in particolare alla pagina contenente l'API specifica per il
+     * task da risolvere
+     * @return istanza di retrofit opportunamente creata
+     */
     public static Retrofit getRetrofitInstance() {
         if (retrofit == null){
             interceptor.setLevel(HttpLoggingInterceptor.Level.BODY);

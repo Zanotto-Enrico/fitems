@@ -12,6 +12,10 @@ import com.example.fitems.R;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Sottoclasse di <code>BaseAdapter</code> con lo scopo di specializzare le informazioni da visualizzare
+ * nella lista di post della schermata home
+ */
 public class CustomListAdapter_Home extends BaseAdapter {
 
     Context c;

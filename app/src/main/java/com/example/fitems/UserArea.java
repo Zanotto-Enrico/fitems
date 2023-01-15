@@ -99,7 +99,6 @@ public class UserArea extends AppCompatActivity {
         this.btnLogOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 AlertDialog.Builder altdial = new AlertDialog.Builder(UserArea.this);
                 altdial.setMessage("Confermi di voler uscire dalla piattaforma?").setCancelable(false)
                                 .setPositiveButton("Confermo", new DialogInterface.OnClickListener() {

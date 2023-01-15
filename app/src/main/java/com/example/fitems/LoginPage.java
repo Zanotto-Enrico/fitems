@@ -47,6 +47,10 @@ public class LoginPage extends AppCompatActivity {
         addListenerToWidgets();
     }
 
+    /**
+     * Metodo che ha il compito di fare il binding con tutte le View all'interno della
+     * nostra activity
+     */
     private void connectWithGraphic() {
         this.btnIndex = findViewById(R.id.btnIndex);
         this.btnAccedi = findViewById(R.id.btnAccedi);
@@ -54,7 +58,10 @@ public class LoginPage extends AppCompatActivity {
         this.txtPassword = findViewById(R.id.txtPassword);
     }
 
-
+    /**
+     * Metodo che ha il compito di raggruppare e inizializzare i listeners
+     * sugli elementi dell'activity
+     */
     private void addListenerToWidgets() {
         this.btnIndex.setOnClickListener(new View.OnClickListener() {
             @Override

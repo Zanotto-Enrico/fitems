@@ -17,7 +17,7 @@ public class LatLonGenerator {
      * latitudine e longitudine in formato double
      * @param address l'indirzzo da convertire
      * @param c contesto in cui l'applicativo si ritrova al momento della chiamata
-     * @return <code>Pair{@literal <}Double, Double></code> nell'ordine contenente longitudine e latitudine
+     * @return <code>Pair{@literal <}Double, Double></code> nell'ordine contenente latitudine e longitudine
      * @throws IOException in caso di fallimento del metodo di localizzazione
      */
     public static Pair<Double, Double> getCoordinatesFromAddress(String address, Context c) throws IOException {
@@ -31,8 +31,8 @@ public class LatLonGenerator {
     /**
      * Metodo avente il compito di risolvere le coordinate passate come parametro al metodo nel
      * corrispettivo indirizzo sotto forma di stringa
-     * @param latitudine
-     * @param longitudine
+     * @param latitudine latitudine da convertire
+     * @param longitudine longitudine da convertire
      * @param c contesto in cui l'applicativo si ritrova al momento della chiamata
      * @return stringa contenente l'indirizzo trovato
      * @throws IOException in caso di fallimento del metodo di localizzazione
