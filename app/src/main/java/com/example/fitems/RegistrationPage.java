@@ -45,9 +45,13 @@ public class RegistrationPage extends AppCompatActivity {
 
         connectWithGraphic();
         addListenerToWidgets();
+        initDatePicker();
     }
 
-
+    /**
+     * Metodo che ha il compito di fare il binding con tutte le View all'interno della
+     * nostra activity
+     */
     private void connectWithGraphic() {
         this.txtUsername = findViewById(R.id.txtUsername_registration);
         this.txtNome = findViewById(R.id.txtNome_registration);
@@ -60,11 +64,23 @@ public class RegistrationPage extends AppCompatActivity {
         this.btnRegistrati = findViewById(R.id.btnRegistrati_registration);
         this.btnDatePicker = findViewById(R.id.btnDatePicker_registration);
         this.btnBack = findViewById(R.id.btnIndex_registration);
-        initDatePicker();
     }
 
-
+    /**
+     * Metodo che ha il compito di raggruppare e inizializzare i listeners
+     * sugli elementi dell'activity
+     */
     private void addListenerToWidgets() {
+        this.txtIndirizzo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    Toast.makeText(getApplicationContext(), "Per una maggiore precisione consigiamo di utilizzare l'indirizzo di residenza con annesso numero civico.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Non garantiamo il funzionamento dell'applicativo nel caso di inserimento di indirizzi troppo generici come strade principali o nomi di città", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
         this.btnRegistrati.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -89,7 +105,7 @@ public class RegistrationPage extends AppCompatActivity {
                             0);
 
                     try {
-                        registerUser(user, view);
+                        registerUser(user);
                     } catch (Exception e) {
                         Toast.makeText(RegistrationPage.this, "Errore. Il contenuto dei campi forniti non è valido. Controllare.", Toast.LENGTH_LONG).show();
                         Toast.makeText(RegistrationPage.this, "Provare a modificare lo username oppure il formato con cui l'indirizzo è stato inserito", Toast.LENGTH_LONG).show();
@@ -117,6 +133,11 @@ public class RegistrationPage extends AppCompatActivity {
         });
     }
 
+    /**
+     * Metodo per formattare la data in maniera corretta secondo lo standard richiesto dal backend
+     * @param d data da formattare
+     * @return data formattata
+     */
     private String formatDate(String d) {
         String[] info = d.split("/");
 
@@ -126,6 +147,9 @@ public class RegistrationPage extends AppCompatActivity {
         return "";
     }
 
+    /**
+     * Metodo avente il compito di impostare correttamente il datepicker della schermata di registrazione
+     */
     private void initDatePicker() {
         DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
             @Override
@@ -140,10 +164,17 @@ public class RegistrationPage extends AppCompatActivity {
         int month = cal.get(Calendar.MONTH);
         int day = cal.get(Calendar.DAY_OF_MONTH);
 
-        datePickerDialog = new DatePickerDialog(this, AlertDialog.BUTTON_POSITIVE, dateSetListener, year, month, day);
+        this.datePickerDialog = new DatePickerDialog(this, AlertDialog.BUTTON_POSITIVE, dateSetListener, year, month, day);
+        this.datePickerDialog.getDatePicker().setMaxDate(new Date().getTime());
     }
 
-    private void registerUser(User u, View v) throws IOException {
+    /**
+     * Metodo che, interfacciandosi con il backend, permette la creazione di un utente nel sistema.
+     * Il metodo è creato a posta per ritornare eventuali errori nel caso in cui la procedura non si concretizzasse con successo
+     * @param u utente da registrare
+     * @throws IOException
+     */
+    private void registerUser(User u) throws IOException {
         ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
         Pair<Double, Double> c = LatLonGenerator.getCoordinatesFromAddress(u.getIndirizzo(), this);
 
@@ -157,6 +188,7 @@ public class RegistrationPage extends AppCompatActivity {
                     finish();
                 } else {
                     Toast.makeText(RegistrationPage.this, "Errore: non è stato possibile creare il tuo utente. Riprovare più tardi.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(RegistrationPage.this, "Potresti aver utilizzato uno username già esistente, prova a modificarlo!", Toast.LENGTH_LONG).show();
                 }
             }
 
