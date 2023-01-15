@@ -12,6 +12,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.content.pm.PackageManager;
+import android.graphics.drawable.Drawable;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -68,11 +69,12 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btnAccount;
-    private ImageButton btnNewPost, btnGuide, btnChat;
+    private ImageButton btnNewPost, btnGuide, btnChat, btnTools;
     private ListView listViewPost;
     private TextView txtBonusPoints;
     private List<Post> posts;
     private LocationRequest locationRequest;
+    private boolean state;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,10 +83,18 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setNavigationBarColor(ContextCompat.getColor(this, R.color.primaryDark));
         setContentView(R.layout.activity_main);
         this.posts = new ArrayList<>();
-        locationRequest = new LocationRequest.Builder(LocationRequest.PRIORITY_HIGH_ACCURACY, 50000).build();
+        locationRequest = new LocationRequest.Builder(LocationRequest.PRIORITY_HIGH_ACCURACY, 5000).build();
+        this.state = false;
         getCurrentLocation();
 
         connectWithGraphic();
+        this.btnNewPost.setVisibility(View.INVISIBLE);
+        this.btnGuide.setVisibility(View.INVISIBLE);
+        this.btnChat.setVisibility(View.INVISIBLE);
+        this.btnChat.setClickable(false);
+        this.btnGuide.setClickable(false);
+        this.btnNewPost.setClickable(false);
+
         addListenerToWidgets();
 
         setBonusPoints();
@@ -118,6 +128,7 @@ public class MainActivity extends AppCompatActivity {
         this.txtBonusPoints = findViewById(R.id.txtBonusPoints);
         this.btnGuide = findViewById(R.id.btnGuide);
         this.btnChat = findViewById(R.id.btnChat);
+        this.btnTools = findViewById(R.id.btnTools);
     }
 
     /**
@@ -172,6 +183,28 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i = new Intent(view.getContext(), Guide.class);
                 startActivity(i);
+            }
+        });
+
+        this.btnTools.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(state == false){
+                    state = true;
+                    btnTools.setImageDrawable(getDrawable(R.drawable.ic_baseline_arrow_drop_down_24));
+                    btnChat.setVisibility(View.VISIBLE);
+                    btnGuide.setVisibility(View.VISIBLE);
+                    btnNewPost.setVisibility(View.VISIBLE);
+                }else{
+                    state = false;
+                    btnTools.setImageDrawable(getDrawable(R.drawable.ic_baseline_arrow_drop_up_24));
+                    btnChat.setVisibility(View.INVISIBLE);
+                    btnGuide.setVisibility(View.INVISIBLE);
+                    btnNewPost.setVisibility(View.INVISIBLE);
+                }
+                btnChat.setClickable(state);
+                btnGuide.setClickable(state);
+                btnNewPost.setClickable(state);
             }
         });
     }

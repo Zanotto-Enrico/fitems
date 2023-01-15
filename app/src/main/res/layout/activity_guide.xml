@@ -55,13 +55,13 @@
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:text="Domanda 1"/>
+                android:text="Come Fitems usa i tuoi dati personali?"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16sp"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textColor="@color/white"
                 android:text="Risposta 1"/>
 
@@ -72,13 +72,13 @@
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:text="Domanda 2"/>
+                android:text="Fitems è sicura?"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16sp"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textColor="@color/white"
                 android:text="Risposta 2"/>
 
@@ -89,15 +89,84 @@
                 android:textSize="17sp"
                 android:textStyle="bold"
                 android:textColor="@color/white"
-                android:text="Domanda 3"/>
+                android:text="Come posso aggiungere un post?"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16sp"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textColor="@color/white"
                 android:text="Risposta 3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="Come posso segnalare il ritrovamento di un oggetto?"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16sp"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:text="Risposta 3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="Come posso modificare le informazioni del mio account?"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16sp"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:text="Risposta 3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="Come posso effettuare il logout?"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16sp"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:text="Risposta 3"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10sp"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:text="Come viene scelta la poszione dei post?"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16sp"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:text="Risposta 3"/>
+
 
         </LinearLayout>
 

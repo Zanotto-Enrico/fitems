@@ -141,11 +141,14 @@ public class UserArea extends AppCompatActivity {
 
                 JsonElement punti = response.body().get("punteggio");
                 try {
+                    Double lat = Double.parseDouble(response.body().get("latitudine").toString().replace("\"", ""));
+                    Double lon =  Double.parseDouble(response.body().get("longitudine").toString().replace("\"", ""));
+
                     currentUser = new User(response.body().get("username").toString().replace("\"",""),
                             response.body().get("nome").toString().replace("\"",""),
                             response.body().get("cognome").toString().replace("\"",""), "",
                             response.body().get("email").toString().replace("\"",""),
-                            LatLonGenerator.getAddressFromCoordinates(Double.parseDouble(response.body().get("latitudine").toString().replace("\"","")), Double.parseDouble(response.body().get("longitudine").toString().replace("\"","")), getApplicationContext()),
+                            LatLonGenerator.getAddressFromCoordinates(lat,lon, getApplicationContext()),
                             response.body().get("nascita").toString().replace("\"",""),
                             punti == null ? -1 : Integer.parseInt(punti.toString().replace("\"","")));
                 } catch (IOException e){

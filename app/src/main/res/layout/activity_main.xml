@@ -34,56 +34,66 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_baseline_account_circle_24" />
 
-    <ImageButton
-        android:id="@+id/btnAddPost"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="16dp"
-        android:background="@null"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_add_24" />
-
-    <ImageButton
-        android:id="@+id/btnChat"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginBottom="16dp"
-        android:background="@null"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toTopOf="@+id/btnAddPost"
-        app:layout_constraintEnd_toEndOf="@+id/btnAddPost"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/btnAddPost"
-        app:srcCompat="@drawable/ic_baseline_chat_24" />
-
-    <ImageButton
-        android:id="@+id/btnGuide"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="16dp"
-        android:background="@null"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_question_mark_24" />
-
     <ListView
         android:id="@+id/listPosts_home"
-        android:layout_width="396dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="0sp"
         android:layout_marginLeft="10sp"
         android:layout_marginTop="28dp"
         android:layout_marginRight="10sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnChat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.157"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
         app:layout_constraintVertical_bias="0.0" />
+
+    <ImageButton
+        android:id="@+id/btnAddPost"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#494C70"
+        app:srcCompat="@drawable/ic_baseline_add_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btnTools"/>
+
+    <ImageButton
+        android:id="@+id/btnGuide"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#494C70"
+        app:srcCompat="@drawable/ic_baseline_question_mark_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnTools"/>
+
+    <ImageButton
+        android:id="@+id/btnChat"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#494C70"
+        app:srcCompat="@drawable/ic_baseline_chat_24"
+        app:layout_constraintEnd_toStartOf="@id/btnAddPost"
+        app:layout_constraintBottom_toTopOf="@id/btnTools"/>
+
+    <ImageButton
+        android:id="@+id/btnTools"
+        android:layout_width="50sp"
+        android:layout_height="50sp"
+        android:layout_marginEnd="16sp"
+        android:layout_marginBottom="16sp"
+        android:background="@drawable/rounded_corners"
+        android:backgroundTint="#494C70"
+        android:src="@drawable/ic_baseline_arrow_drop_up_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/txtBonusPoints"
@@ -99,4 +109,5 @@
         app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
