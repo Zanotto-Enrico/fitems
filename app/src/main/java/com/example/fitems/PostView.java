@@ -60,7 +60,7 @@ public class PostView extends AppCompatActivity {
         Bundle bundle = getIntent().getExtras();
 
         this.txtUsername.setText(bundle.getString("username"));
-        this.txtStato.setText((new Integer(bundle.getInt("stato"))).toString().equals("0")? "Chiuso" : "Aperto");
+        this.txtStato.setText((new Integer(bundle.getInt("stato"))).toString().equals("1")? "Chiuso" : "Aperto");
         this.txtData.setText(bundle.getString("data"));
         this.txtDescrizione.setText(bundle.getString("descrizione"));
         this.txtTitolo.setText(bundle.getString("titolo"));

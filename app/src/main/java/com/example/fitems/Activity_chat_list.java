@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.fitems.Classes.ApiInterface;
@@ -36,7 +37,7 @@ public class Activity_chat_list extends AppCompatActivity {
 
     private ImageButton btnAccount;
     private ListView listViewChats;
-
+    private TextView txtNoChats;
     private List<Chat> chats;
 
     @Override
@@ -55,6 +56,7 @@ public class Activity_chat_list extends AppCompatActivity {
     private void connectWithGraphic() {
         this.btnAccount = findViewById(R.id.btnAccount_homepage2);
         this.listViewChats = findViewById(R.id.listChats);
+        this.txtNoChats = findViewById(R.id.txtNoChat);
     }
 
     private void addListenerToWidgets() {
@@ -92,6 +94,8 @@ public class Activity_chat_list extends AppCompatActivity {
                 synchronized (chats) {
 
                     JsonArray array = response.body().getAsJsonArray("chats");
+                    if (array.size() != 0)
+                        txtNoChats.setVisibility(View.INVISIBLE);
                     for (JsonElement var : array)
                     {
                         chats.add( new Gson().fromJson(var, Chat.class));

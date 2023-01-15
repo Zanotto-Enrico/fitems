@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnAccount;
     private ImageButton btnNewPost, btnGuide, btnChat, btnTools;
     private ListView listViewPost;
-    private TextView txtBonusPoints;
+    private TextView txtBonusPoints, txtCaricamento;
     private List<Post> posts;
     private LocationRequest locationRequest;
     private boolean state;
@@ -94,6 +94,7 @@ public class MainActivity extends AppCompatActivity {
         this.btnChat.setClickable(false);
         this.btnGuide.setClickable(false);
         this.btnNewPost.setClickable(false);
+
 
         addListenerToWidgets();
 
@@ -129,6 +130,7 @@ public class MainActivity extends AppCompatActivity {
         this.btnGuide = findViewById(R.id.btnGuide);
         this.btnChat = findViewById(R.id.btnChat);
         this.btnTools = findViewById(R.id.btnTools);
+        this.txtCaricamento = findViewById(R.id.txtCaricamento);
     }
 
     /**
@@ -222,6 +224,10 @@ public class MainActivity extends AppCompatActivity {
                     Type listType = new TypeToken<ArrayList<Post>>(){}.getType();
                     ArrayList<Post> post = new Gson().fromJson(response.body().getAsJsonArray("post"), listType);
                     JsonArray array = response.body().getAsJsonArray("post");
+                    if(array.size() == 0)
+                        txtCaricamento.setText("Nessun post trovato!");
+                    else
+                        txtCaricamento.setVisibility(View.INVISIBLE);
                     for (JsonElement var : array)
                     {
                         posts.add( new Gson().fromJson(var, Post.class));
