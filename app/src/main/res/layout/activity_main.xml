@@ -73,8 +73,8 @@
 
     <ListView
         android:id="@+id/listPosts_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="396dp"
+        android:layout_height="0dp"
         android:layout_marginLeft="10sp"
         android:layout_marginTop="28dp"
         android:layout_marginRight="10sp"

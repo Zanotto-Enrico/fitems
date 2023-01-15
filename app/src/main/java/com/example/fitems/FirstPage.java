@@ -59,8 +59,6 @@ public class FirstPage extends AppCompatActivity {
             call.enqueue(new Callback<JsonObject>() {
                 @Override
                 public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                    Toast.makeText(FirstPage.this, "Status: " + response.body().get("status"), Toast.LENGTH_LONG).show();
-
                     if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
                         User.initializeLoggedUser(getApplicationContext(), new View(getApplicationContext()));
                         //finish();
