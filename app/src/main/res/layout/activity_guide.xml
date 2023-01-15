@@ -34,14 +34,17 @@
 
 
     <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/guide"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:padding="16sp"
+        android:layout_width="408dp"
+        android:layout_height="640dp"
+        android:fillViewport="true"
         android:orientation="vertical"
-        android:fillViewport="true">
+        android:padding="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/guide"
+        app:layout_constraintVertical_bias="0.0">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -52,120 +55,120 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10sp"
-                android:textSize="17sp"
-                android:textStyle="bold"
+                android:text="Come Fitems usa i tuoi dati personali?"
                 android:textColor="@color/white"
-                android:text="Come Fitems usa i tuoi dati personali?"/>
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16sp"
-                android:textSize="14sp"
+                android:text="I dati personali inseriti in fase di registrazione saranno memorizzati all'interno di un database e utilizzati esclusivamente per identificarti. Tali informazioni non saranno mai scambiate con nessun servizio pubblicitario o con finalità non direttamente collegate all'utilizzo di questa piattaforma"
                 android:textColor="@color/white"
-                android:text="Risposta 1"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10sp"
-                android:textSize="17sp"
-                android:textStyle="bold"
+                android:text="Fitems è sicura?"
                 android:textColor="@color/white"
-                android:text="Fitems è sicura?"/>
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16sp"
-                android:textSize="14sp"
+                android:text="FItems è assolutamente sicura. Nessuna informazione altamente confidenziale viene memorizzata dal sistema e tantomeno, come scritto nella domanda precedente, le informazioni verranno inviate ad enti terzi. Se il timore è quello legato all'indirizzo di residenza, nessun problema: FItems permette ai propri utenti di inserire un qualsiasi altro indirizzo in grado di identificare il quartiere in cui vivi (il raggio considerato per rappresentare un quartiere è di 500 metri)"
                 android:textColor="@color/white"
-                android:text="Risposta 2"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10sp"
-                android:textSize="17sp"
-                android:textStyle="bold"
+                android:text="Come posso aggiungere un post?"
                 android:textColor="@color/white"
-                android:text="Come posso aggiungere un post?"/>
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16sp"
-                android:textSize="14sp"
+                android:text="Per aggiungere un nuovo post di smarrimento è sufficiente che tu clicchi nel pulsante in basso a destra nella schermata home. Una volta comparsi i 3 pulsanti colorati dovrai solamente cliccare in quello contenente una + e seguire le istruzioni nella pagina caricata."
                 android:textColor="@color/white"
-                android:text="Risposta 3"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10sp"
-                android:textSize="17sp"
-                android:textStyle="bold"
+                android:text="Come posso segnalare il ritrovamento di un oggetto?"
                 android:textColor="@color/white"
-                android:text="Come posso segnalare il ritrovamento di un oggetto?"/>
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16sp"
-                android:textSize="14sp"
+                android:text="Per segnalare il ritrovamento di un oggetto ti è sufficiente cliccare sull'oggetto che hai ritrovato dalla lista della schermata home e clicccare poi sul pulsante  'Contatta il proprietario'. A quel punto una nuova chat è stata creata e così potrai accordarti con il proprietario per la restituzione del suo oggetto"
                 android:textColor="@color/white"
-                android:text="Risposta 3"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10sp"
-                android:textSize="17sp"
-                android:textStyle="bold"
+                android:text="Come posso modificare le informazioni del mio account?"
                 android:textColor="@color/white"
-                android:text="Come posso modificare le informazioni del mio account?"/>
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16sp"
-                android:textSize="14sp"
+                android:text="Per modificare le informazioni del tuo account ti è sufficiente entrare nella user area e cliccare sul pulsante raffigurante una penna. A questo punto si abiliterà l'opzione di modifica e potrai eseguire tutti i ritocchi che vorrai."
                 android:textColor="@color/white"
-                android:text="Risposta 3"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10sp"
-                android:textSize="17sp"
-                android:textStyle="bold"
+                android:text="Come posso effettuare il logout?"
                 android:textColor="@color/white"
-                android:text="Come posso effettuare il logout?"/>
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16sp"
-                android:textSize="14sp"
+                android:text="Per effettuare il logout dalla piattaforma ti è sufficiente accedere alla schermata dedicata all'utente e cliccare il pulsante raffigurante una freccia in uscita da una porta"
                 android:textColor="@color/white"
-                android:text="Risposta 3"/>
+                android:textSize="14sp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10sp"
-                android:textSize="17sp"
-                android:textStyle="bold"
+                android:text="Come vengono scelti i post da visualizzare nella schermata home?"
                 android:textColor="@color/white"
-                android:text="Come viene scelta la poszione dei post?"/>
+                android:textSize="17sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16sp"
-                android:textSize="14sp"
+                android:text="I post vengono scelti sulla base della tua posizione attuale: gli oggetti rappresentati non saranno altro che tutti gli oggetti persi nel quartiere in cui ti trovi"
                 android:textColor="@color/white"
-                android:text="Risposta 3"/>
+                android:textSize="14sp" />
 
 
         </LinearLayout>
