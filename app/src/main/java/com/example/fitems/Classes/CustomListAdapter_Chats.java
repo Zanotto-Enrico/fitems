@@ -46,7 +46,7 @@ public class CustomListAdapter_Chats extends BaseAdapter {
         TextView lblDescrizione = (TextView) view.findViewById(R.id.lblDescrizionePost);
         lblTitolo.setText(chats.get(i).getUsername());
         //lblDescrizione.setText(chats.get(i).getMessaggi().get(0).getContenuto());
-        lblDescrizione.setText("-- Ultimo messaggio inviato --");
+        lblDescrizione.setText("Clicca per aprire la chat");
         return view;
     }
 }
