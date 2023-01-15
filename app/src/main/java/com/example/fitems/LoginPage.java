@@ -59,8 +59,6 @@ public class LoginPage extends AppCompatActivity {
         this.btnIndex.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(view.getContext(), FirstPage.class);
-                view.getContext().startActivity(i);
                 finish();
             }
         });
@@ -71,25 +69,30 @@ public class LoginPage extends AppCompatActivity {
                 String usrInserito = txtUsername.getText().toString();
                 String pwdInserta = txtPassword.getText().toString();
 
-                ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
-                Call<JsonObject> call = apiInterface.makeLogIn(usrInserito, pwdInserta);
-                call.enqueue(new Callback<JsonObject>() {
-                    @Override
-                    public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                        Toast.makeText(LoginPage.this, "Status: " + response.body().get("status"), Toast.LENGTH_LONG).show();
+                if (usrInserito.equals("") || pwdInserta.equals(""))
+                    Toast.makeText(getApplicationContext(), "Compila tutti i campi richiesti!", Toast.LENGTH_LONG).show();
+                else {
+                    ApiInterface apiInterface = RetrofitClient.getRetrofitInstance().create(ApiInterface.class);
+                    Call<JsonObject> call = apiInterface.makeLogIn(usrInserito, pwdInserta);
+                    call.enqueue(new Callback<JsonObject>() {
+                        @Override
+                        public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
+                            if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
+                                Toast.makeText(LoginPage.this, "Benvenuto!", Toast.LENGTH_LONG).show();
+                                checkRecLogUsr.logIn(usrInserito, pwdInserta, MyDate.getToday());
 
-                        if(response.body().get("status").toString().equals("\"LOGGED IN\"")) {
-                            checkRecLogUsr.logIn(usrInserito, pwdInserta, MyDate.getToday());
-
-                            User.initializeLoggedUser(getApplicationContext(), view);
+                                User.initializeLoggedUser(getApplicationContext(), view);
+                            } else {
+                                Toast.makeText(LoginPage.this, "Errore!\nLe credenziali potrebbero essere errate oppure si è verificato un errore.\nRiprova più tardi.", Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onFailure(Call<JsonObject> call, Throwable t) {
-                        Toast.makeText(LoginPage.this, t.getMessage(), Toast.LENGTH_LONG).show();
-                    }
-                });
+                        @Override
+                        public void onFailure(Call<JsonObject> call, Throwable t) {
+                            Toast.makeText(LoginPage.this, t.getMessage(), Toast.LENGTH_LONG).show();
+                        }
+                    });
+                }
             }
         });
     }
