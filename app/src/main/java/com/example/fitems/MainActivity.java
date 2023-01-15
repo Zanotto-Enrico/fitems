@@ -25,6 +25,7 @@ import android.text.style.ImageSpan;
 import android.util.Pair;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -69,7 +70,7 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
 
     private ImageButton btnAccount;
-    private ImageButton btnNewPost, btnGuide, btnChat, btnTools;
+    private ImageButton btnNewPost, btnGuide, btnChat, btnTools, btnRefresh;
     private ListView listViewPost;
     private TextView txtBonusPoints, txtCaricamento;
     private List<Post> posts;
@@ -131,6 +132,7 @@ public class MainActivity extends AppCompatActivity {
         this.btnChat = findViewById(R.id.btnChat);
         this.btnTools = findViewById(R.id.btnTools);
         this.txtCaricamento = findViewById(R.id.txtCaricamento);
+        this.btnRefresh = findViewById(R.id.btnRefresh_MainActivity);
     }
 
     /**
@@ -138,6 +140,14 @@ public class MainActivity extends AppCompatActivity {
      * sugli elementi dell'activity
      */
     private void addListenerToWidgets() {
+        this.btnRefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                posts = new ArrayList<>();
+                getCurrentLocation();
+            }
+        });
+
         this.btnAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

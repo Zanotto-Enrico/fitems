@@ -7,6 +7,18 @@
     android:background="@color/primaryDark"
     tools:context=".MainActivity">
 
+    <ImageButton
+        android:id="@+id/btnRefresh_MainActivity"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:scaleType="fitXY"
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_rotate" />
+
     <TextView
         android:id="@+id/txtCaricamento"
         android:layout_width="wrap_content"
@@ -21,14 +33,14 @@
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="193dp"
-        android:layout_height="45dp"
+        android:layout_width="122dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:text="Home"
+        android:textColor="@color/white"
         android:textSize="40dp"
         android:textStyle="bold"
-        android:textColor="@color/white"
         app:layout_constraintEnd_toStartOf="@+id/btnAccount_homepage"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,9 +80,9 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#494C70"
-        app:srcCompat="@drawable/ic_baseline_add_24"
+        app:layout_constraintBottom_toTopOf="@id/btnTools"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btnTools"/>
+        app:srcCompat="@drawable/ic_baseline_add_24" />
 
     <ImageButton
         android:id="@+id/btnGuide"
@@ -80,9 +92,9 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#494C70"
-        app:srcCompat="@drawable/ic_baseline_question_mark_24"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/btnTools"/>
+        app:layout_constraintEnd_toStartOf="@id/btnTools"
+        app:srcCompat="@drawable/ic_baseline_question_mark_24" />
 
     <ImageButton
         android:id="@+id/btnChat"
@@ -92,9 +104,9 @@
         android:layout_marginBottom="16dp"
         android:background="@drawable/rounded_corners"
         android:backgroundTint="#494C70"
-        app:srcCompat="@drawable/ic_baseline_chat_24"
+        app:layout_constraintBottom_toTopOf="@id/btnTools"
         app:layout_constraintEnd_toStartOf="@id/btnAddPost"
-        app:layout_constraintBottom_toTopOf="@id/btnTools"/>
+        app:srcCompat="@drawable/ic_baseline_chat_24" />
 
     <ImageButton
         android:id="@+id/btnTools"
