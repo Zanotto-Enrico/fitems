@@ -123,4 +123,10 @@ public class MyPosts extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        downloadMyPosts();
+    }
 }

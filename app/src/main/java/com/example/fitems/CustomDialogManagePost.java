@@ -2,6 +2,7 @@ package com.example.fitems;
 
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import retrofit2.Response;
 
 public class CustomDialogManagePost extends AppCompatDialogFragment {
     private EditText txtUsername;
+    public Context c;
 
     @NonNull
     @Override
@@ -44,8 +46,9 @@ public class CustomDialogManagePost extends AppCompatDialogFragment {
                             @Override
                             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
                                 if(response.body().get("status").toString().equals("\"SUCCESS\"")) {
-                                    //getActivity().finish();
-                                    System.out.println("FATTO");
+                                    Toast.makeText(c, "POST chiuso con successo!", Toast.LENGTH_LONG).show();
+                                } else {
+                                    Toast.makeText(c, "Chiusura POST non avvenuta! Riprovare più tardi!", Toast.LENGTH_LONG).show();
                                 }
                             }
 

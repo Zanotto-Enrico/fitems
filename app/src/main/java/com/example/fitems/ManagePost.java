@@ -70,6 +70,7 @@ public class ManagePost extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 CustomDialogManagePost dialog = new CustomDialogManagePost();
+                dialog.c = getApplicationContext();
                 dialog.show(getSupportFragmentManager(), "");
             }
         });
@@ -88,12 +89,14 @@ public class ManagePost extends AppCompatActivity {
         call.enqueue(new Callback<JsonObject>() {
             @Override
             public void onResponse(Call<JsonObject> call, Response<JsonObject> response) {
-                Toast.makeText(ManagePost.this, "Status: " + response.body().get("status"), Toast.LENGTH_LONG).show();
-
+                btnRestituzione.setVisibility(View.INVISIBLE);
+                btnTrovatoIo.setVisibility(View.INVISIBLE);
                 if(response.body().get("status").toString().equals("\"SUCCESS\"")) {
-                    btnRestituzione.setVisibility(View.INVISIBLE);
-                    btnTrovatoIo.setVisibility(View.INVISIBLE);
+                    Toast.makeText(getApplicationContext(), "Post chiuso con successo", Toast.LENGTH_LONG).show();
                     finish();
+                } else {
+                    txtInfo.setText("Si è verificato un errore riprova più tardi!");
+                    txtInfo.setVisibility(View.VISIBLE);
                 }
             }
 
