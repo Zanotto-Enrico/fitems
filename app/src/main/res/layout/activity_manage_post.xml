@@ -7,71 +7,80 @@
     android:background="@color/primaryDark"
     tools:context=".ManagePost">
 
-    <TextView
-        android:id="@+id/txtNomePost_ManagePost"
+    <LinearLayout
+        android:id="@+id/topLinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Nome post"
-        android:textColor="@color/white"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.381"
-        app:layout_constraintStart_toEndOf="@+id/btnBack_ManagePost"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageButton
-        android:id="@+id/btnBack_ManagePost"
-        android:layout_width="35dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:background="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
+        android:layout_marginTop="16sp"
+        android:layout_marginStart="16sp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
 
-    <Button
-        android:id="@+id/btnConfermaRitrovamento_ManagePost"
-        android:layout_width="378dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="80dp"
-        android:backgroundTint="@color/primaryLight"
-        android:text="Ho ritrovato il mio oggetto da solo"
-        android:textColor="@color/accent"
-        android:textSize="14sp"
-        app:cornerRadius="@dimen/btnCornerRadius"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNomePost_ManagePost" />
+        <ImageButton
+            android:id="@+id/btnBack_ManagePost"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:background="@null"
+            app:srcCompat="@drawable/ic_baseline_arrow_back_24" />
 
-    <Button
-        android:id="@+id/btnConfermaRestituzione_ManagePost"
-        android:layout_width="378dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="36dp"
-        android:backgroundTint="@color/primaryLight"
-        android:text="Conferma restituzione oggetto"
-        android:textColor="@color/accent"
-        android:textSize="14sp"
-        app:cornerRadius="@dimen/btnCornerRadius"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.515"
+        <TextView
+            android:id="@+id/txtNomePost_ManagePost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:layout_marginStart="16sp"
+            android:textSize="23sp"
+            android:maxWidth="270sp"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnConfermaRitrovamento_ManagePost" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/btnConfermaRitrovamento_ManagePost"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:backgroundTint="@color/primaryLight"
+            android:text="Ho ritrovato il mio oggetto da solo"
+            android:textColor="@color/accent"
+            android:textSize="14sp"
+            app:cornerRadius="@dimen/btnCornerRadius" />
+
+        <Button
+            android:id="@+id/btnConfermaRestituzione_ManagePost"
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:layout_marginTop="36dp"
+            android:backgroundTint="@color/primaryLight"
+            android:text="Conferma restituzione oggetto"
+            android:textColor="@color/accent"
+            android:textSize="14sp"
+            app:cornerRadius="@dimen/btnCornerRadius" />
+
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/txtInfo_ManagePost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:text="TextView"
         android:textColor="@color/primaryLight"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtNomePost_ManagePost" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
